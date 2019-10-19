@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Grid</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!--
+		CONTAINER
+			Name
+			Tab
+
+			Home
+				<hello,name> <photo>
+			About Me
+			Achievements
+			Skills
+			Work
+			Contact
+
+	-->
+
+
+	<div class="container">
+		
+		<!--navigation panel-->
+		<div class="name">
+			<p>&lt;anmol agarwal&gt;</p>
+		</div>
+		<div class="tab" >
+			<a href="#home" 	 class="tablinks active" onclick="openLink(event)">home</a>
+			<a href="#about"  class="tablinks" onclick="openLink(event)">about me</a>
+			<a href="#achievements" class="tablinks" onclick="openLink(event)">achievements</a>
+			<a href="#skills" 	 class="tablinks" onclick="openLink(event)">skills</a>
+			<a href="#work" 	 class="tablinks" onclick="openLink(event)">work</a>
+			<a href="#contact"   class="tablinks" onclick="openLink(event)">contact</a>
+		</div>
+
+
+<!--insert image parallex mysirg reference-->
+
+		<!--sections of page-->
+		<div id="home">
+			<div class="intro">
+				HELLO I<div class="green">’</div>M 
+				<br><span>ANMOL AGARWAL</span><br>
+				B<div class="green">.</div>TECH COMPUTER SCIENCE STUDENT<div  class="green">;</div>
+			</div>
+			<div class="photo">
+				<img src="pp.jpg">
+			</div>
+		</div><!--home-->
+
+		<div id="about">
+			<div class="small-head">welcome</div>
+			<div class="sec-head"><div class="green">&lt;</div>About Me<div class="green">&gt;</div></div>
+			<br>
+			<div class="quote"><q> Ambition is the first step towards SUCCESS! </q></div>
+			<br>
+			<div class="text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</div>
+		</div> <!--about-->
+		
+<!--insert image parallex mysirg reference-->
+
+		<div id="achievements">
+			<div class="small-head">achievements</div>
+			<div class="sec-head"><div class="green">&lt;</div>Achievements<div class="green">&gt;</div></div>
+			<div class="text">
+				10th - 8.8CGPA
+				<br>(date)
+				<br>B.B.L Public School,Bareilly
+			</div>
+			<div class="text">
+				12th - 79.8%
+				<br>(date)
+				<br>B.B.L Public School,Bareilly
+			</div>
+			<div class="text">
+				b.tech(CS) - 80%
+				<br>(date) - present
+				<br>Invertis University,Bareilly
+			</div>
+			<div></div>
+			<div><h1>certifications - add certifications here</h1></div>
+		</div> <!--achievements-->
+
+<!--insert image parallex mysirg reference-->
+		<br>
+		<div id="skills">
+			<div class="small-head">skills</div>
+			<div class="sec-head"><div class="green">&lt;</div>My Skills<div class="green">&gt;</div></div>
+			<div class="sec-skills"> <h1>Skills</h1>
+				<div><div class="sk-name text">C</div>	<div class="progress-bar"><div id="C"></div></div></div>
+				<div><div class="sk-name text">C++</div>	<div class="progress-bar"><div id="CPP"></div></div></div>
+				<div><div class="sk-name text">Java</div>	<div class="progress-bar"><div id="Java"></div></div></div>
+				<div><div class="sk-name text">Android</div>	<div class="progress-bar"><div id="Android"></div>	</div></div>
+				<div><div class="sk-name text">Machine Learning</div>	<div class="progress-bar"><div id="MachineLearning"></div></div></div>
+			</div>	
+
+			<div class="sec-interests"><h1>Interests</h1>
+				<div><div class="it-name text">Android</div>	<div class="progress-bar"><div id="android"></div></div></div>
+				<div><div class="it-name text">Machine learning</div>	<div class="progress-bar"><div id="ML"></div></div></div>
+				<div><div class="it-name text">Artificial Intelligence</div>	<div class="progress-bar"><div id="AI"></div></div></div>
+				<div><div class="it-name text">Image Processing</div>	<div class="progress-bar"><div id="IP"></div></div></div>
+				<div><div class="it-name text">Web Development</div>	<div class="progress-bar"><div id="web"></div></div></div>	
+			</div>
+
+			<div class="ranks"><h1>Ranks</h1></div>
+			<div class="text">hackerrank-rank<br> as of (date) </div>
+			<div class="text">hackerearth-rank<br> as of (date) </div>
+			<div class="text">firecode-level<br> as of (date) </div>	
+		</div> <!--skills-->
+
+<!--insert image parallex mysirg reference-->
+		
+		<div id="work">
+			<div class="small-head">accomplishments</div>
+			<div class="sec-head"><div class="green">&lt;</div>My Work<div class="green">&gt;</div></div>
+			<div class="sec-projects"><h1>Projects</h1></div>
+				<div class="wk-project text">Project 1</div>   <!--display project in a box with image of it(when hover on them dshow a brief description) with link to github repo-->
+				<div class="wk-project text">Project 2</div>
+				<div class="wk-project text">Project 3</div>
+				<div id="wk-git" class="text"><a href="https://github.com/anmolagarwal17" target="_blank">more projects by me(github profile link)</a></div>
+			<div class="sec-internships"><h1>Internships</h1></div>
+				<div class="wk-internship text">Internship 1</div>
+				<div class="wk-internship text">Internship 2</div>
+				<div class="wk-internship text">Internship 3</div>
+
+		</div><!--work-->
+
+<!--insert image parallex mysirg reference-->
+		
+		<div id="contact">
+			<div class="small-head">contact</div>
+			<div class="sec-head"><div class="green">&lt;</div>Contact Me<div class="green">&gt;</div></div>
+			<div class="text">
+				ANMOL AGARWAL 
+				<br>B.Tech. Computer Science
+				<br>Invertis University
+				<br>Bareilly.
+				<br>Email – a.a.rocks17@gmail.com
+			</div>
+			<div class="text">
+				LinkedIn profile link
+				<br>Github - github.com/anmolagarwal17
+				<br>hackerrank/hackerearth/firecode links
+			</div>
+		</div><!--contact-->
+
+<!--insert image parallex mysirg reference-->
+
+	</div>
+
+	<!--for top navigation bar-->
+	<script>
+	    function openLink(evt) {
+	      var i, tablinks;
+	      tablinks = document.getElementsByClassName("tablinks");
+	      for (i = 0; i < tablinks.length; i++) {
+	        tablinks[i].className = tablinks[i].className.replace(" active", "");
+	      }
+	      evt.currentTarget.className += " active";
+	    }
+  	</script>
+
+
+  	<!--smooth scroll-->
+
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script>
+		  		$(document).ready(function(){
+		  // Add smooth scrolling to all links
+		  $("a").on('click', function(event) {
+
+		    // Make sure this.hash has a value before overriding default behavior
+		    if (this.hash !== "") {
+		      // Prevent default anchor click behavior
+		      event.preventDefault();
+
+		      // Store hash
+		      var hash = this.hash;
+
+		      // Using jQuery's animate() method to add smooth page scroll
+		      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		      $('html, body').animate({
+		      	scrollTop: $(hash).offset().top
+		      }, 1000, function(){
+
+		        // Add hash (#) to URL when done scrolling (default click behavior)
+		        window.location.hash = hash;
+		    });
+		    } // End if
+		});
+		});
+	</script>
+	
+
+</body>
+</html>
