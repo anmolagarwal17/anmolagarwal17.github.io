@@ -13,6 +13,7 @@ html,body
 a
 {
 	text-decoration: none; 
+	color: #000;
 }
 .container
 { 
@@ -201,16 +202,10 @@ a
 }
 .progress-bar:hover
 {
-	box-shadow: 0 0 15px #008fd6;
+	box-shadow: 0 0 20px #53cf78;
 }
 /*skills progress bar*/
 #C
-{
-	width: 70%;
-	height: 20px;
-	background-color: #00D646;
-}
-#CPP
 {
 	width: 65%;
 	height: 20px;
@@ -218,13 +213,19 @@ a
 }
 #Java
 {
+	width: 75%;
+	height: 20px;
+	background-color: #00D646;
+}
+#JS
+{
 	width: 85%;
 	height: 20px;
 	background-color: #00D646;
 }
-#Android
+#React
 {
-	width: 87%;
+	width: 80%;
 	height: 20px;
 	background-color: #00D646;
 }
@@ -235,7 +236,7 @@ a
 	background-color: #00D646;
 }
 /*interest's progress bar*/
-#android
+#app-dev
 {
 	width: 80%;
 	height: 20px;
@@ -243,22 +244,22 @@ a
 }
 #ML
 {
-	width: 90%;
+	width: 75%;
 	height: 20px;
 	background-color: #00D646
 }
 #AI
 {
-	width: 85%;
+	width: 70%;
 	height: 20px;
 	background-color: #00D646
 }
-#IP
+/* #IP
 {
 	width: 75%;
 	height: 20px;
 	background-color: #00D646
-}
+} */
 #web
 {
 	width: 85%;
@@ -300,9 +301,10 @@ a
 #work > #wk-git
 {
 	grid-area: github;
-	background-color: #0ff;
+	/* background-color: #0ff; */
+	background-color: #53cf78;
 }
-#work > .wk-project
+#work > a .wk-project
 {
 	padding: 80px;
 	background-color: #ddd;
@@ -314,15 +316,15 @@ a
 	background-color: #ddd;
 	margin-bottom: 5%;
 }
-#work > .wk-project:hover
+#work > a .wk-project:hover
 {
-	box-shadow: 0 0 15px #008fd6;
-	padding-bottom: 5%;
-	margin-bottom: 5%;
+	box-shadow: 0 0 15px #53cf78;
+	/* padding-bottom: 5%;
+	margin-bottom: 5%; */
 }
 #work > .wk-internship:hover
 {
-	box-shadow: 0 0 15px #008fd6;
+	box-shadow: 0 0 20px #53cf78;
 }
 #work > .sec-internships
 {
@@ -332,6 +334,18 @@ a
 {
 	padding: 0% 25% 2% 25%;
 	text-align: left;
+}
+#contact > .text 
+{
+	color: #000;
+}
+#contact a
+{
+	font-style: italic;
+}
+#contact a:hover
+{
+	color: #00D646;
 }
 #contact > .sec-head
 {
