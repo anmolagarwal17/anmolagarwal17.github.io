@@ -375,6 +375,10 @@ a:hover
 	letter-spacing: 0.15em;
 	color:#777;
 }
+.text:hover
+{
+	color:#000;
+}
 .small-head
 {
 	font-variant: small-caps;
