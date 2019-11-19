@@ -307,6 +307,8 @@ a:hover
 	grid-area: github;
 	/* background-color: #0ff; */
 	background-color: #53cf78;
+	font-size: 25px;
+	font-weight: bold;
 }
 #work > a .wk-project
 {
