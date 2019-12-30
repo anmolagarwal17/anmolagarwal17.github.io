@@ -118,7 +118,8 @@ a:hover
 }
 #home .photo > img
 {
-	width: 600px;
+	width: 550px;
+	margin: 50px;
 	height: auto;
 	/*box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.7), 0 6px 40px 0 rgba(0, 0, 0, 0.7);*/
 }
