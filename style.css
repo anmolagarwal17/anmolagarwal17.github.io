@@ -206,6 +206,7 @@ a:hover
 	width: 400px;
 	height: 20px;
 	background-color: #333;
+	border-radius: 20px;
 }
 .progress-bar:hover
 {
@@ -217,49 +218,57 @@ a:hover
 	width: 65%;
 	height: 20px;
 	background-color: #00D646;
+	border-radius: 20px;
 }
 #Java
 {
 	width: 75%;
 	height: 20px;
 	background-color: #00D646;
+	border-radius: 20px;
 }
 #JS
 {
 	width: 85%;
 	height: 20px;
 	background-color: #00D646;
+	border-radius: 20px;
 }
 #React
 {
 	width: 80%;
 	height: 20px;
 	background-color: #00D646;
+	border-radius: 20px;
 }
 #MachineLearning
 {
 	width: 90%;
 	height: 20px;
 	background-color: #00D646;
+	border-radius: 20px;
 }
 /*interest's progress bar*/
 #app-dev
 {
 	width: 80%;
 	height: 20px;
-	background-color: #00D646
+	background-color: #00D646;
+	border-radius: 20px;
 }
 #ML
 {
 	width: 75%;
 	height: 20px;
-	background-color: #00D646
+	background-color: #00D646;
+	border-radius: 20px;
 }
 #AI
 {
 	width: 70%;
 	height: 20px;
-	background-color: #00D646
+	background-color: #00D646;
+	border-radius: 20px;
 }
 /* #IP
 {
@@ -271,7 +280,8 @@ a:hover
 {
 	width: 85%;
 	height: 20px;
-	background-color: #00D646
+	background-color: #00D646;
+	border-radius: 20px;
 }
 #work
 {
@@ -312,12 +322,14 @@ a:hover
 	background-color: #53cf78;
 	font-size: 25px;
 	font-weight: bold;
+	border-radius: 20px;
 }
 #work > a .wk-project
 {
 	padding: 80px;
 	background-color: #ddd;
 	margin-bottom: 5%;
+	border-radius: 20px;
 }
 #work > .wk-internship
 {
