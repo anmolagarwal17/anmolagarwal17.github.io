@@ -350,6 +350,10 @@ a:hover
 	/* padding-bottom: 5%;
 	margin-bottom: 5%; */
 }
+#work > a:hover > .text
+{
+	color: #000;
+}
 #work > .wk-internship:hover
 {
 	box-shadow: 0 0 20px #53cf78;
