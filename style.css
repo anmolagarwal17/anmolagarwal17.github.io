@@ -324,6 +324,13 @@ a:hover
 	font-weight: bold;
 	border-radius: 20px;
 }
+#work > a
+{
+	/*padding: 80px;*/
+	background-color: #ddd;
+	margin-bottom: 5%;
+	border-radius: 20px;
+}
 #work > a .wk-project
 {
 	padding: 80px;
@@ -337,7 +344,7 @@ a:hover
 	background-color: #ddd;
 	margin-bottom: 5%;
 }
-#work > a .wk-project:hover
+#work > a:hover
 {
 	box-shadow: 0 0 15px #53cf78;
 	/* padding-bottom: 5%;
