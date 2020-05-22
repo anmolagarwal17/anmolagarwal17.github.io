@@ -25,7 +25,7 @@ input.addEventListener('input', () => {
 		if (optionValue == 'all') {
 			getRandomFact(input.value, factsNumber);
 			getRandomFact(input.value + '/year', factsYear);
-			getRandomFact(`${date.getMonth() + 1}/${date.getDate()}/date`, factsDate);
+			getRandomFact(input.value + '/date', factsDate);
 			getRandomFact(input.value + '/math', factsMaths);
 			factsNumber.style.display = 'block';
 			factsYear.style.display = 'block';
