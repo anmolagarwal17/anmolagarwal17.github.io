@@ -1,0 +1,125 @@
+body {
+    background: -webkit-linear-gradient(to right, #0575e6, #00f970);
+    background: linear-gradient(to right, #0575e6, #00f970);
+    height: 100vh;
+}
+
+.navbar {
+    background: #3593f1;
+    background: -webkit-linear-gradient(to left, #0575e6, #00f960);
+    background: linear-gradient(to left, #0575e6, #00f970);
+}
+
+.navbar-brand {
+    color: #802963 !important;
+}
+
+.navbar img {
+    filter: brightness(1.2);
+}
+
+.navbar div i {
+    color: #00f970;
+    font-size: 25px;
+}
+
+.container {
+    margin-bottom: 100px;
+}
+
+.card-header {
+    background: #3593f1;
+    background: -webkit-linear-gradient(to left, #0575e6, #00f960);
+    background: linear-gradient(to left, #0575e6, #00f970);
+    color: white;
+}
+
+.facts-text {
+    display: none;
+    /* background: linear-gradient(to left, #d3e83d, #00f970); */
+    background: #3593f1;
+    background: -webkit-linear-gradient(to left, #0575e6, #00f960);
+    background: linear-gradient(to left, #0575e6, #00f970);
+    color: white;
+}
+
+.loading {
+    display: none;
+    width: 1rem;
+    height: 1rem;
+}
+
+#sticky-footer small p {
+    display: inline;
+}
+
+#sticky-footer small img {
+    width: 20px;
+    height: auto;
+    margin-left: 10px;
+}
+
+/* modal */
+
+.a-modal {
+    display: none;
+    position: fixed;
+    z-index: 9900;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 1s !important;
+}
+
+.a-modal-content {
+    margin: 20px auto;
+    width: 60%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 0.3s !important;
+}
+
+.a-modal-header {
+    background: -webkit-linear-gradient(to left, #0575e6, #00f960);
+    background: linear-gradient(to left, #0575e6, #00f970);
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.a-modal-body {
+    padding: 10px 20px;
+    background: #fff;
+}
+
+.a-modal-body p {
+    font-size: 1rem;
+}
+
+.a-close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    color: #fff;
+}
+
+.a-close:hover,
+.a-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
