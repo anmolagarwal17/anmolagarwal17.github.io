@@ -23,16 +23,16 @@ input.addEventListener('input', () => {
 	displayNothing();
 	if (input.value !== '') {
 		if (optionValue == 'all') {
-			getRandomFact(input.value, factsNumber);
+			getRandomFact(input.value + '/trivia', factsNumber);
 			getRandomFact(input.value + '/year', factsYear);
-			getRandomFact(input.value + '/date', factsDate);
+			getRandomFact('1/' + input.value + '/date', factsDate);
 			getRandomFact(input.value + '/math', factsMaths);
 			factsNumber.style.display = 'block';
 			factsYear.style.display = 'block';
 			factsDate.style.display = 'block';
 			factsMaths.style.display = 'block';
 		} else if (optionValue == 'number') {
-			getRandomFact(input.value, factsNumber);
+			getRandomFact(input.value + '/trivia', factsNumber);
 			factsNumber.style.display = 'block';
 		} else if (optionValue == 'year') {
 			getRandomFact(input.value + '/year', factsYear);
@@ -57,7 +57,15 @@ input.addEventListener('input', () => {
 
 function getRandomFact(query, element) {
 	element.querySelector('.loading').style.display = 'inline-block';
-	fetch(`http://numbersapi.com/${query}`)
+	element.querySelector('.fact').textContent = '';
+	// fetch(`http://numbersapi.com/${query}`)
+	
+	fetch(`https://numbersapi.p.rapidapi.com/${query}`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "numbersapi.p.rapidapi.com",
+		"x-rapidapi-key": apikey
+	}})
 		.then((resp) => {
 			// if response is anything other than ok then: -- else:
 			if (resp.status != 200) {

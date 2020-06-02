@@ -50,7 +50,8 @@ body {
 }
 
 #sticky-footer small p {
-    display: inline;
+    display: inline;colo
+    color: white;
 }
 
 #sticky-footer small img {
@@ -60,6 +61,10 @@ body {
 }
 
 /* modal */
+
+#modal-btn{
+    cursor: pointer;
+}
 
 .a-modal {
     display: none;
@@ -98,6 +103,15 @@ body {
 
 .a-modal-body p {
     font-size: 1rem;
+}
+.a-modal-body h4 span{
+    background-image: -webkit-linear-gradient(to left, #0575e6, #00f960);
+    background-image: linear-gradient(to left, #0575e6, #00f960);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
 }
 
 .a-close {
