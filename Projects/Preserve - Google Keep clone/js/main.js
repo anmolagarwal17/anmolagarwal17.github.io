@@ -3,3 +3,5 @@
 //     document.querySelector('.main').style.gridTemplateColumns = '5% 95%';
 //     document.querySelectorAll('.side-nav-option').forEach((element) => element.style.display = 'none');
 // })
+
+// console.log(new Date().getTime());
