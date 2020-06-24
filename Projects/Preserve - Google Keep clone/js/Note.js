@@ -1,13 +1,8 @@
-console.clear();
-
 class Note {
 	constructor() {
 		this.noteData = {
 			title: '',
-			textData: {
-				text: '',
-				modified: new Date().getTime(),
-			},
+			textData: '',
 			checkboxData: [],
 			listData: [],
 		};
@@ -15,12 +10,26 @@ class Note {
 		// this.color = '';
 		this.properties = {
 			modified: new Date().getTime(),
+			index: {
+				textData: 0,
+				checkboxData: 1,
+				listData: 2,
+			},
 			// ! pin position will start from 0 for highest priority and increase in number for lower priorities
 			// pinPosition: -1,
+			listType: 'bullet-1', // *, *, *, *
+			// listType: 'bullet-2'  // ->, ->, ->, ->
+			// listType: 'bullet-3'  // ⏺, ⏺, ⏺, ⏺
+			// listType: 'number-1'  // for normal numbering 1, 2, 3, 4
+			// listType: 'number-1'  // for capital roman numbering I, II, III, IV
+			// listType: 'number-1'  // for small roman numbering i, ii, iii, iv
+			// listType: 'number-1'  // for capital alphabetical numbering A, B, C, D
+			// listType: 'number-1'  // for small alphabetical numbering a, b, c, d
 		};
 	}
 
 	// note title
+
 	get noteTitle() {
 		return this.noteData.title;
 	}
@@ -31,13 +40,13 @@ class Note {
 	}
 
 	// note text data
+
 	get textData() {
-		return this.noteData.textData.text;
+		return this.noteData.textData;
 	}
 	set textData(text) {
-		this.noteData.textData.text = text.substr(0, 20000);
-		// setting modified variables of textData and the whole Note object to the current time - when it is modified
-		this.noteData.textData.modified = new Date().getTime();
+		this.noteData.textData = text.substr(0, 20000);
+		// updating modified time
 		this.properties.modified = new Date().getTime();
 	}
 
@@ -50,10 +59,11 @@ class Note {
 		return this.noteData.checkboxData[id];
 	}
 	addCheckbox(text) {
+		if (this.noteData.checkboxData.length >= 500)
+			throw new Error('Checkbox cannot have more than 500 items!');
 		let checkbox = {
-			// max. length of text for each textbox is 500 characters
+			// max. length of text for each checkbox is 500 characters
 			text: text.substr(0, 500),
-			modified: new Date().getTime(),
 			checked: false,
 			id: this.allCheckboxData.length,
 		};
@@ -62,25 +72,17 @@ class Note {
 		this.properties.modified = new Date().getTime();
 	}
 	updateCheckboxText(id, text) {
-		this.noteData.checkboxData[id].text = text;
+		this.noteData.checkboxData[id].text = text.substr(0, 500);
 		// updating modified time
-		this.noteData.checkboxData[id].modified = new Date().getTime();
 		this.properties.modified = new Date().getTime();
 	}
 	toggleCheckCheckbox(id) {
 		this.noteData.checkboxData[id].checked = !this.noteData.checkboxData[id]
 			.checked;
 		// updating modified time
-		this.noteData.checkboxData[id].modified = new Date().getTime();
 		this.properties.modified = new Date().getTime();
 	}
-	updateCheckboxTime(id)
-	{
-		// updating modified time
-		this.noteData.checkboxData[id].modified = new Date().getTime();
-		this.properties.modified = new Date().getTime();	
-	}
-	removeCheckbox(id) {
+	deleteCheckbox(id) {
 		if (this.noteData.checkboxData.some((chkBox) => chkBox.id == id)) {
 			this.noteData.checkboxData = this.noteData.checkboxData.filter(
 				(chkBox) => {
@@ -93,48 +95,94 @@ class Note {
 				this.noteData.checkboxData[i].id = i;
 			}
 			// updating modified time
-			this.noteData.checkboxData[id].modified = new Date().getTime();
 			this.properties.modified = new Date().getTime();
 		} else throw new Error('Checkbox object does not exist error!');
 	}
+	moveCheckbox(id, position) {
+		// when the id is invalid
+		if (
+			id < 0 ||
+			id >= this.noteData.checkboxData.length ||
+			position < 0 ||
+			position >= this.noteData.checkboxData.length
+		) {
+			throw new Error(
+				`Invalid checkbox ID (${id}), or position (${position}) to move!`
+			);
+			return;
+		} else {
+			if (id < position) {
+				let checkbox = this.noteData.checkboxData[id];
+				for(let i=id; i<position; i++)
+				{
+					this.noteData.checkboxData[i] = this.noteData.checkboxData[i+1];
+					this.noteData.checkboxData[i].id--; 
+				}
+				this.noteData.checkboxData[position] = checkbox;
+				this.noteData.checkboxData[position].id = position;
+			}
+			else if(id > position)
+			{
+				console.log('hello');
+				let checkbox = this.noteData.checkboxData[id];
+				for(let i=id; i>position; i--)
+				{
+					console.log(`this.noteData.checkboxData[i] = this.noteData.checkboxData[i-1] ${this.noteData.checkboxData[i].id} = ${this.noteData.checkboxData[i-1].id}`);
+					this.noteData.checkboxData[i] = this.noteData.checkboxData[i-1];
+					this.noteData.checkboxData[i].id++; 
+				}
+				this.noteData.checkboxData[position] = checkbox;
+				this.noteData.checkboxData[position].id = position;
+			}
+			else{
+				console.log('Cannot move checkbox to its own position!(id and position same)');
+			}
+		}
+	}
+
+	// list
+
+	// ! implement id-index to use as position when updating time/position
+	// ! make a algorithm that takes id(or say index) to update and its new position and then update it along with other element ids/indexes that need to be updated
+	// ! take inspiration from sorting algorithms that move array elements from place to place
+	// ! do this first
+	// ! implement for checkbox then copy paste it for list as well
 }
-console.log('\n-----------------------------------------------------------\n');
+
+console.clear();
+console.log('\n---------------------------------------------\n');
 let note = new Note();
-console.log(note);
-console.log(note);
+// console.log(note);
 
-note.addCheckbox('lorem0');
-note.addCheckbox('ipsum1');
-note.addCheckbox('ipsum2');
-note.addCheckbox('ipsum3');
-note.addCheckbox('ipsum4');
-note.addCheckbox('ipsum5');
-note.addCheckbox('ipsum6');
-note.addCheckbox('ipsum7');
-note.addCheckbox('ipsum8');
-console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-console.log(note.noteData.checkboxData);
-console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-note.removeCheckbox(note.allCheckboxData[1].id);
-// console.log('hello', note.allCheckboxData[0]);
-// console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-// console.log(note.noteData.checkboxData);
-// console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-// note.toggleCheckCheckbox(2);
-// note.toggleCheckCheckbox(5);
-// console.log(note.noteData.checkboxData);
-// console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-// note.toggleCheckCheckbox(5);
-// console.log(note.noteData.checkboxData);
-// console.log('\n+++++++++++++++++++++++++++++++++++++++++\n');
-// note.toggleCheckCheckbox(1);
-// console.log(note.getCheckbox(1));
 
-note.toggleCheckCheckbox(7);
-note.updateCheckboxText( 7, 'updated text');
+
+note.addCheckbox('this is checkbox at index 0');
+note.addCheckbox('this is checkbox at index 1');
+note.addCheckbox('this is checkbox at index 2');
+note.addCheckbox('this is checkbox at index 3');
+note.addCheckbox('this is checkbox at index 4');
+note.addCheckbox('this is checkbox at index 5');
+note.addCheckbox('this is checkbox at index 6');
+note.addCheckbox('this is checkbox at index 7');
+note.addCheckbox('this is checkbox at index 8');
+note.addCheckbox('this is checkbox at index 9');
+
+
 console.log(note.allCheckboxData);
-note.updateCheckboxText(7);
+
+
+note.moveCheckbox(9, 2);
 console.log(note.allCheckboxData);
+
+
+
+note.moveCheckbox(2, 8);
+console.log(note.allCheckboxData);
+
+
+
+
+
 // textData: {
 //     text: "All the text in the note itself.",
 //     modified: new Date().getTime() // gets the ms from 1 January 1970 00:00:00 UTC to the given date-time(UTC) which will be unique

@@ -38,3 +38,38 @@
         pinPosition: -1 // -1 for default, i.e, not pinned else the pin position like 0th(pinned at top), 1st(sencond pin), 2nd ...
     }
 }
+
+
+// ! use event deligation to add events to everything on the page in the app
+// ! use event deligation to add events to everything on the page in the app
+// ! use event deligation to add events to everything on the page in the app
+// ! use event deligation to add events to everything on the page in the app
+// ! use event deligation to add events to everything on the page in the app
+// ! use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// ? use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// todo use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+// * use event deligation to add events to everything on the page in the app
+
+
+
+
+
+// todo do this:
+
+// todo add methods to move textData, checkbox block, list block etc up and down(index of those will be stored in the properties section of every note object)
+// todo 
