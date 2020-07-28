@@ -64,7 +64,7 @@ function getRandomFact(query, element) {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "numbersapi.p.rapidapi.com",
-		"x-rapidapi-key": apikey
+		"x-rapidapi-key": "91c8f1bbdbmshccb0615880b4351p178048jsn42beaabe2aa6"
 	}})
 		.then((resp) => {
 			// if response is anything other than ok then: -- else:
