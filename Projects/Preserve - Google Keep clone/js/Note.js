@@ -107,7 +107,7 @@ class Note {
 			position >= this.noteData.checkboxData.length
 		) {
 			throw new Error(
-				`Invalid checkbox ID (${id}), or position (${position}) to move!`
+				`Invalid: Checkbox ID(${id}) or Position(${position})`
 			);
 			return;
 		} else {
@@ -171,7 +171,7 @@ note.addCheckbox('this is checkbox at index 9');
 console.log(note.allCheckboxData);
 
 
-note.moveCheckbox(9, 2);
+note.moveCheckbox(9, 19);
 console.log(note.allCheckboxData);
 
 
