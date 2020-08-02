@@ -1,443 +1,67 @@
-html,body
-{
-	margin:0px;
-	padding:0px;
-	font-size: 16px;
-	line-height: 1.8;
-	font-weight: 400;
-	color: #333;
-	background-color: ;
-	text-align: center;
-	font-family: "Poppins", Arial, sans-serif;
-}
-a
-{
-	text-decoration: none; 
-	color: #000;
-}
-a:hover
-{
-	color: #ccc;
-}
-.container
-{ 
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: repeat(8, auto);
-	/*
-	grid-template-columns: 1fr 2fr 1fr;
-	grid-template-rows: auto 1fr 1fr;
-	grid-gap: 1em;
-}
-.container > div
-{/*
-	background: #eee;
-	padding: 1em; */
-}
-.name > p
-{
-	font-family: "Poppins", Arial, sans-serif;
-	line-height: 1.8;
-	margin-block-start: 0.5em;
-	margin-block-end: 0.5em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	font-size: 30px;
-	letter-spacing: 0.8em;
-	text-transform: uppercase;
-	font-weight: bold;
-}
-/* Style the buttons inside the tab */
-.tab 
-{
-	display: grid;
-	grid-template-columns: repeat(6, auto);
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 0;
-	background-color: rgba(50, 50, 50, 0.7);
-}
-.tab a 
-{
-	color: #fff;
-	background-color: inherit;
-	text-transform: uppercase;
-	letter-spacing: 0.4em;
-	transition: 0.3s;
-	font-size: 17px;
-	cursor: pointer;
-	padding: 14px 16px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Change background color of buttons on hover */
-.tab a:hover 
-{
-	background-color: #ddd;
-}
-/* Create an active/current tablink class */
-.tab a.active 
-{
-	background-color: #ccc;
-}
-#home
-{
-	display: grid; 						/*layout for home section*/
-	grid-template-columns: auto auto;
-	padding: 10%;
-	grid-gap: 10%;
-	
-}
-@media screen and (max-width: 992px)
-{
-	#home
-	{
-		display: grid;
-		grid-template-columns: auto;
-		grid-template-rows: 1fr 1fr;
-		/*grid-template-areas: "intro" 
-		"photo" ;*/
-	}
-	
-}
-#home .intro
-{
-	font-size: 30px;
-	text-align: left;
-	/*padding: 10% 5% 10% 10%;*/
-}
-#home .intro > span
-{
-	display: inline;
-	font-size: 80px;
-	font-weight: 700;
-	letter-spacing: 0.2em;
-}
-#home .photo 
-{
-	text-align: center;
-}
-#home .photo > img
-{
-	width: 550px;
-	margin: 50px;
-	height: auto;
-	/*box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.7), 0 6px 40px 0 rgba(0, 0, 0, 0.7);*/
-}
-#about
-{
-	padding: 5% 25%;
-}
-#achievements
-{
-	padding: 5% 0%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: auto auto auto;
-	grid-template-areas: "ach-shead ach-shead ach-shead"
-	"ach-head ach-head ach-head"
-	"ach-sec ach-sec ach-sec";
-}
-#achievements > .small-head
-{
-	grid-area: ach-shead;
-}
-#achievements > .sec-head
-{
-	grid-area: ach-head;
-	padding-bottom: 5%;
-}
-#skills
-{
-	padding: 5% 5%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto auto auto auto auto;
-	grid-column-gap: 5%;
-	grid-template-areas: "ski-shead ski-shead"
-	"ski-head ski-head"
-	"skills interests"
-	"rank rank";
-}
-#skills > .small-head
-{
-	grid-area: ski-shead;
-}
-#skills > .sec-head
-{
-	grid-area: ski-head;
-}
-#skills > .sec-skills > h1
-{
-	text-align: center;
-}
-#skills > .sec-skills
-{
-	grid-area: skills;
-	text-align: left;
-}
-.sk-name
-{
-	display: inline-block;
-	/*font-size: 10px;*/
-}
-#skills > .sec-interests > h1
-{
-	text-align: center;
-}
-#skills > .sec-interests
-{
-	grid-area: interests;
-	text-align: left;
-}
-.it-name
-{
-	display: inline-block;
-	/*font-size: 10px;*/
-}
-#skills > .ranks
-{
-	grid-area: rank;
-}
-.progress-bar
-{
-	margin-top: 8px;
-	display: inline-block;
-	float: right;
-	width: 400px;
-	height: 20px;
-	background-color: #333;
-	border-radius: 20px;
-}
-.progress-bar:hover
-{
-	box-shadow: 0 0 20px #53cf78;
-}
-/*skills progress bar*/
-#C
-{
-	width: 65%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#Java
-{
-	width: 75%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#JS
-{
-	width: 85%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#React
-{
-	width: 80%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#MachineLearning
-{
-	width: 90%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-/*interest's progress bar*/
-#app-dev
-{
-	width: 80%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#ML
-{
-	width: 75%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#AI
-{
-	width: 70%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-/* #IP
-{
-	width: 75%;
-	height: 20px;
-	background-color: #00D646
-} */
-#web
-{
-	width: 85%;
-	height: 20px;
-	background-color: #00D646;
-	border-radius: 20px;
-}
-#work
-{
-	padding: 5% 0%;
-	display: grid;
-}
-#work
-{
-	padding: 5% 5%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: repeat(7, auto);
-	grid-column-gap: 5%;
-	grid-template-areas: "wk-shead wk-shead wk-shead"
-	"wk-head wk-head wk-head"
-	"pro-head pro-head pro-head"
-	"pr1 pr2 pr3"
-	"github github github"
-	"int-head int-head int-head"
-	"int1 int2 int3";
-}
-#work > .small-head
-{
-	grid-area: wk-shead;
-}
-#work > .sec-head
-{
-	grid-area: wk-head;
-}
-#work > .sec-projects
-{
-	grid-area: pro-head;
-}
-#work > #wk-git
-{
-	grid-area: github;
-	/* background-color: #0ff; */
-	background-color: #53cf78;
-	font-size: 25px;
-	font-weight: bold;
-	border-radius: 20px;
-}
-#work > a
-{
-	/*padding: 80px;*/
-	background-color: #ddd;
-	margin-bottom: 5%;
-	border-radius: 20px;
-}
-#work > a .wk-project
-{
-	padding: 80px;
-	background-color: #ddd;
-	margin-bottom: 5%;
-	border-radius: 20px;
-}
-#work > .wk-internship
-{
-	padding: 80px;
-	background-color: #ddd;
-	margin-bottom: 5%;
-}
-#work > a:hover
-{
-	box-shadow: 0 0 15px #53cf78;
-	/* padding-bottom: 5%;
-	margin-bottom: 5%; */
-}
-#work > a:hover > .text
-{
-	color: #000;
-}
-#work > .wk-internship:hover
-{
-	box-shadow: 0 0 20px #53cf78;
-}
-#work > .sec-internships
-{
-	grid-area: int-head;
-}
-#contact
-{
-	padding: 0% 25% 2% 25%;
-	text-align: left;
-}
-#contact > .text 
-{
-	color: #000;
-}
-#contact a
-{
-	font-style: italic;
-}
-#contact a:hover
-{
-	color: #00D646;
-}
-#contact > .sec-head
-{
-	text-align: center;
+body{
+    min-height: 100vh;
 }
 
-
-
-
-
-
-
-
-.quote
-{
-	 font-style: italic;
-	 font-size: 20px;
+nav {
+    position: fixed;
+    width: 10%;
+    height: 100vh;
+    left: 90%;
+    display: flex;
+    flex-direction: column;
 }
-.text
-{
-	line-height: 2.1em;
-	font-size: 17px;
-	letter-spacing: 0.15em;
-	color:#777;
+
+nav #nav-tog{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px 15%;
+    height: auto;
+    background: #999;
 }
-.text:hover
-{
-	color:#000;
+
+nav #nav-sec{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-.small-head
-{
-	font-variant: small-caps;
-	font-size: 20px;
-	letter-spacing: 0.15em;
-	text-align: center;
+nav #nav-sec img{
+    width: 30%;
+    height: auto;
 }
-.sec-head
-{
-	color: #000;
-	font-size: 50px;
-	font-weight: 550;
-	justify-content: center;
-	letter-spacing: 0.2em;
+nav #nav-sec div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    border-bottom: 1px solid white;
+    /* background: #f55; */
+    background: #377;
 }
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  position: relative;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+nav #nav-sec div span{
+    text-align: center;
+    color: #fff;
 }
-.bgimg-1 {
-	background: none;
-  background-image: url("img_parallax.jpg");
-  min-height: 100%;
+
+.big{
+    top: 20px;
+    transform: scale(1.1);
 }
-.green
-{
-	display: inline-block;
-	color: #00D646;
-	font-size: 50px;
-	font-weight: 800;
+
+main{
+    width: 85%;
+    margin-left: 5%;
+}
+
+.main-sec{
+    min-height: 100vh;
+    /* background: #000; */
 }
