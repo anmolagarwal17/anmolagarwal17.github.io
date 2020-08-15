@@ -141,19 +141,26 @@ main {
     line-height: 5vh;
 }
 
+#education{
+    height: 100%;
+}
+
 #education .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    /* grid-template-rows: auto auto; */
     grid-template-areas: "edu cert"
         "edu other";
-    gap: 20px;
+    /* gap: 20px; */
+    margin-bottom: 100px;
     /* gap: 60px; */
 }
 
 #edu-info {
     grid-area: edu;
-    min-height: 60vh;
+    /* min-height: 60vh; */
+    /* height: 90%; */
+    height: 100%;
     /* overflow: hidden; */
 }
 
@@ -174,21 +181,34 @@ main {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    min-height: 80%;
+    height: 100%;
 }
 
-#edu-info div div{
+#edu-info div div,
+#edu-cert div p,
+#edu-other div p{
     padding: 0.5vh 0;
 }
+
+#view-cert{
+    display: block;
+    font-size: 18px;
+    color: rgb(14, 25, 184);
+    padding: 10px 0;
+    cursor: pointer;
+}
+
 #edu-info div .year{
     /* font-weight: 500; */
-    font-size: 1.75vw;
+    font-size: 1.65vw;
 }
-#edu-info div .title{
+#edu-info div .title,
+#edu-cert div p,
+#edu-other div p{
     /* font-weight: 600; */
-    font-size: 1.15vw;
+    font-size: 1.05vw;
 }
 #edu-info div .inst{
-    font-size: 1.4vw;
+    font-size: 1.3vw;
 }
 
