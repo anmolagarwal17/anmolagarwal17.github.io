@@ -40,3 +40,12 @@ window.addEventListener('scroll', function(){
 	}
 	navSec[i].classList.add('selected');
 })
+
+// textarea auto resize height code snippet
+textarea = document.querySelector("#autoresizing"); 
+textarea.addEventListener('input', autoResize, false); 
+
+function autoResize() { 
+	this.style.height = 'auto'; 
+	this.style.height = this.scrollHeight + 'px'; 
+} 
