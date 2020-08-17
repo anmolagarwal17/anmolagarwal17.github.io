@@ -428,8 +428,7 @@ form label{
 }
 
 form input,
-form textarea,
-form div{
+form textarea{
     border-radius: 5px;
     border: none;
     margin-top: 5px;
