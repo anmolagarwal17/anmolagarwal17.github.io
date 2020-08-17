@@ -32,13 +32,12 @@ nav #nav-tog {
     height: auto;
     background: #999;
 }
-nav #nav-tog img{
-    animation: rotate 0.3s ease-in-out forwards;
-    animation-direction: reverse;    
-}
 
 nav #nav-tog img.nav-minimized {
     animation: rotate 0.3s ease-in-out forwards;
+}
+nav #nav-tog img.nav-maximized {
+    animation: rev-rotate 0.3s ease-in-out forwards;
 }
 
 @keyframes rotate {
@@ -47,6 +46,14 @@ nav #nav-tog img.nav-minimized {
     }
     100% {
         transform: rotate(-180deg);
+    }
+}
+@keyframes rev-rotate {
+    0% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }
 
@@ -460,8 +467,9 @@ form textarea {
     font-weight: 600;
 }
 
-form div {
+form > div {
     margin: 10px 0;
+    width: 100%;
     max-width: 100%;
     overflow: scroll;
 }

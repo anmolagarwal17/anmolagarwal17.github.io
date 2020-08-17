@@ -59,10 +59,13 @@ const navTog = document.querySelectorAll('#nav-tog img');
 document.addEventListener("click", () =>{
 	
 	navTog[0].classList.toggle('nav-minimized');
+	navTog[0].classList.toggle('nav-maximized');
 	setTimeout(()=>{
 		navTog[1].classList.toggle('nav-minimized');
+		navTog[1].classList.toggle('nav-maximized');
 	}, 100);setTimeout(()=>{
 		navTog[2].classList.toggle('nav-minimized');
+		navTog[2].classList.toggle('nav-maximized');
 	}, 200);
 	
 	
