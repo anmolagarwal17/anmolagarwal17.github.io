@@ -94,7 +94,7 @@ main {
 }
 
 .content {
-    padding: 40px 0;
+    padding: 20px 0;
 }
 
 #home .content {
@@ -244,10 +244,21 @@ main {
     grid-template-columns: 1fr 1fr;
 }
 
+#skills .content h3{
+    grid-column: 1/3;
+    font-size: 35px;
+    padding-bottom: 20px;
+}
+
 #skills .content div div{
     font-size: 30px;
-    padding: 10px 0;
+    padding: 5px 0;
     font-weight: 600;
+    padding-bottom: 20px;
+}
+
+#skills-head-2{
+    padding-top: 40px;
 }
 
 
