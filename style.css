@@ -32,9 +32,22 @@ nav #nav-tog {
     height: auto;
     background: #999;
 }
+nav #nav-tog img{
+    animation: rotate 0.3s ease-in-out forwards;
+    animation-direction: reverse;    
+}
 
-nav #nav-tog img {
-    width: 10%;
+nav #nav-tog img.nav-minimized {
+    animation: rotate 0.3s ease-in-out forwards;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+    }
 }
 
 nav #nav-sec {
@@ -61,13 +74,19 @@ nav #nav-sec a {
 
 nav #nav-sec a:hover,
 nav #nav-sec a.selected {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
+    width: 105%;
+    position: relative;
+    right: 5%;
+    /* top: -0.5%; */
     box-shadow: -3px 0 5px rgba(0, 0, 0, 0.1);
     /* -5px 0 5px rgba(0, 0, 0, 0.3); */
 }
 
-nav #nav-sec a img {
+nav #nav-sec a img,
+nav #nav-sec a svg {
     width: 25%;
+    fill: white;
 }
 
 nav #nav-sec a span {
@@ -179,7 +198,7 @@ main {
     transform: scale(1.05);
 } */
 .proj-title {
-    font-size: 20px;
+    font-size: 25px;
     padding-bottom: 10px;
 }
 
@@ -365,7 +384,7 @@ main {
 
 #contact-handles div {
     position: relative;
-    top: 205px;
+    top: 175px;
 }
 
 #contact-handles span {
@@ -409,26 +428,28 @@ main {
     font-weight: 600;
 }
 
-#form-sec{
+#form-sec {
     padding: 20px 20px;
     background: #232323;
     color: #fff;
     border-radius: 5px;
 }
-form h3{
+
+form h3 {
     font-size: 25px;
     font-weight: 500;
 }
-form p{
+
+form p {
     padding: 10px 0;
 }
 
-form label{
+form label {
     font-size: 18px;
 }
 
 form input,
-form textarea{
+form textarea {
     border-radius: 5px;
     border: none;
     min-width: 100%;
@@ -438,25 +459,28 @@ form textarea{
     font-size: 20px;
     font-weight: 600;
 }
-form div{
+
+form div {
     margin: 10px 0;
     max-width: 100%;
     overflow: scroll;
 }
-form textarea{
+
+form textarea {
     min-height: 100px;
     height: auto;
 }
 
-form button{
+form button {
     width: 100%;
     margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    background: rgb(223, 255, 230);
+    /* background: rgb(223, 255, 230); */
 }
-form button:active{
+
+form button:active {
     transform: scale(0.96);
 }

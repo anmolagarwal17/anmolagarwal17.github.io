@@ -54,3 +54,16 @@ function autoResize() {
 	this.style.height = 'auto';
 	this.style.height = this.scrollHeight + 'px';
 }
+
+const navTog = document.querySelectorAll('#nav-tog img');
+document.addEventListener("click", () =>{
+	
+	navTog[0].classList.toggle('nav-minimized');
+	setTimeout(()=>{
+		navTog[1].classList.toggle('nav-minimized');
+	}, 100);setTimeout(()=>{
+		navTog[2].classList.toggle('nav-minimized');
+	}, 200);
+	
+	
+})
