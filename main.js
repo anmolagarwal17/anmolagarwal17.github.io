@@ -7,6 +7,8 @@ const education = document.getElementById('education');
 const contact = document.getElementById('contact');
 const navSec = document.querySelectorAll('#nav-sec a');
 const secs = [home, about, projects, skills, education, contact];
+const quickActions = document.getElementById('quick-actions');
+const hoverShowQuickActions = document.getElementById('hover-show-quick-actions');
 
 const secHeights = [
 	home.clientHeight,
@@ -17,7 +19,20 @@ const secHeights = [
 	contact.clientHeight,
 ];
 
+hoverShowQuickActions.addEventListener('mouseover', () => {
+	quickActions.classList.remove('quick-actions-hidden');
+})
+quickActions.addEventListener('mouseover', () => {
+	quickActions.classList.remove('quick-actions-hidden');
+})
+
+
 window.addEventListener('scroll', function () {
+	
+	// when the user is scrolling, hide the quick action toolbar
+	// hide quick sections when out of home section
+	if(window.scrollY > secHeights[0])
+		quickActions.classList.add('quick-actions-hidden');
 
 	// for nav selection animation
 
@@ -32,13 +47,17 @@ window.addEventListener('scroll', function () {
 		navSec[j].classList.remove('selected');
 	}
 	navSec[i].classList.add('selected');
+	// if on home section then show quick actions
+	if(i == 0)
+		quickActions.classList.remove('quick-actions-hidden');
 
 	// section title animations
-	sum = secHeights[0] / 4;
+	
+	sum = secHeights[0] / 3;
 	i = 1;
 	// when 1/4th of the next section is scrolled into the view then add logo class to it and every section above it also
 	while (sum < window.scrollY) {
-		sum += (3 * secHeights[i - 1]) / 4 + (1 * secHeights[i]) / 4;
+		sum += (2 * secHeights[i - 1]) / 3 + (1 * secHeights[i]) / 3;
 		i++;
 	}
 	for (let j = 0; j < i; j++) {
