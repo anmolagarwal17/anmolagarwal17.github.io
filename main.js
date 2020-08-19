@@ -151,10 +151,10 @@ form.addEventListener('submit', (e) => {
 	fetch(form.getAttribute('action'), {
 		method: 'POST',
 		headers: {
-			Accept: 'application/x-www-form-urlencoded;charset=UTF-8',
+			'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
 			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
 		},
-		body: new URLSearchParams(form).toString(),
+		body: new URLSearchParams(form).toString()
 	})
 		.then((res) => {
 			// successful
