@@ -111,35 +111,69 @@ document.addEventListener('click', () => {
 
 // ! AJAX form submition
 
+// form.addEventListener('submit', (e) => {
+// 	e.preventDefault();
+
+// 	// submit
+// 	let xhr = new XMLHttpRequest();
+// 	xhr.open('POST',form.getAttribute('action'), true);
+// 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+
+// 	// submiting/loading
+// 	xhr.onprogress = function(){
+// 		form.classList.add('disp-n');
+// 		document.getElementById('form-sending').classList.remove('disp-n');
+// 	}
+
+// 	// successful
+// 	xhr.onload = function(){
+// 		document.getElementById('form-sending').classList.add('disp-n');
+// 		document.getElementById('form-submitted').classList.remove('disp-n');
+// 	}
+
+// 	// error
+// 	xhr.onerror = function () {
+// 		form.classList.add('disp-n');
+// 		document.getElementById('form-error');
+// 	};
+
+// 	xhr.onabort = function () {
+// 		form.classList.add('disp-n');
+// 		document.getElementById('form-error');
+// 	};
+
+// });
+
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
-	
-	// submit
-	let xhr = new XMLHttpRequest();
-	xhr.open('POST',form.getAttribute('action'), true);
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
-	
-	// submiting/loading
-	xhr.onprogress = function(){
-		form.classList.add('disp-n');
-		document.getElementById('form-sending').classList.remove('disp-n');
-	}
-	
-	// successful
-	xhr.onload = function(){
-		document.getElementById('form-sending').classList.add('disp-n');
-		document.getElementById('form-submitted').classList.remove('disp-n');
-	}
-	
-	// error
-	xhr.onerror = function () {
-		form.classList.add('disp-n');
-		document.getElementById('form-error');
-	};
-	
-	xhr.onabort = function () {
-		form.classList.add('disp-n');
-		document.getElementById('form-error');
-	};
 
+	const formData = new FormData(form);
+	fetch(form.getAttribute('action'), {
+		method: 'POST',
+		headers: {
+			Accept: 'application/x-www-form-urlencoded;charset=UTF-8',
+			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+		},
+		body: new URLSearchParams(form).toString(),
+	})
+		.then((res) => {
+			// successful
+			if (res) {
+				form.classList.add('disp-n');
+				document.getElementById('form-sending').classList.add('disp-n');
+				document
+					.getElementById('form-submitted')
+					.classList.remove('disp-n');
+			}
+			// not successful
+			else {
+				form.classList.add('disp-n');
+				document.getElementById('form-error').classList.remove('disp-n');
+			}
+		})
+		.catch((error) => {
+			form.classList.add('disp-n');
+			document.getElementById('form-error').classList.remove('disp-n');
+			console.error(error);
+		});
 });
