@@ -10,7 +10,8 @@ const quickActions = document.getElementById('quick-actions');
 const hoverShowQuickActions = document.getElementById(
 	'hover-show-quick-actions'
 );
-const form = document.getElementByTagName('form');
+const form = document.getElementsByTagName('form')[0];
+console.log(form);
 
 const secHeights = [
 	home.clientHeight,
