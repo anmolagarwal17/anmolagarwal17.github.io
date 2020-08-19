@@ -8,7 +8,7 @@
 	transition: all 0.3s ease-in-out;
 }
 
-svg{
+svg {
 	fill: white;
 }
 
@@ -20,8 +20,14 @@ svg{
 	top: 40px;
 	right: 15%;
 	/* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.4); */
-	box-shadow: 0 0 2.2px rgba(0, 0, 0, 0.034), 0 0 10px 10px rgba(0, 0, 0, 0.1),
-		0 0 80px rgba(0, 0, 0, 0.4);
+	/* box-shadow: 0 0 2.2px rgba(0, 0, 0, 0.034), 0 0 10px 10px rgba(0, 0, 0, 0.1),
+		0 0 80px rgba(0, 0, 0, 0.4); */
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11),
+		0 2px 2px rgba(0, 0, 0, 0.11),
+		0 4px 4px rgba(0, 0, 0, 0.11),
+		0 8px 8px rgba(0, 0, 0, 0.11),
+		0 16px 16px rgba(0, 0, 0, 0.11),
+		0 32px 32px rgba(0, 0, 0, 0.11);
 	border-radius: 75px;
 	overflow: hidden;
 	z-index: 9999;
@@ -60,12 +66,8 @@ svg{
 	border-right: 1.5px solid white;
 }
 
-#quick-actions .theme-hidden {
-	display: none;
-	/* opacity: 0; */
-}
 #download-CV {
-	display: flex;
+	/* display: flex; */
 	font-size: 25px;
 	padding-right: 10px;
 	font-weight: 700;
@@ -75,11 +77,11 @@ svg{
 #hover-show-quick-actions {
 	position: fixed;
 	top: 0;
-	z-index: 500;
-	/* background: #000; */
 	right: 15%;
 	width: 180px;
 	height: 70px;
+	/* background: #000; */
+	z-index: 500;
 }
 
 nav {
@@ -88,25 +90,32 @@ nav {
 	bottom: 0;
 	width: 10%;
 	height: 100vh;
-	left: 90%;
+	/* left: 90%; */
+	right: 0;
 	display: flex;
 	flex-direction: column;
 	z-index: 999;
-	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5), -5px 0 10px rgba(0, 0, 0, 0.2);
+	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5), -5px 0 30px rgba(0, 0, 0, 0.2), -5px 0 80px rgba(0, 0, 0, 0.5);
 }
 
 nav #nav-tog {
 	display: flex;
 	justify-content: space-evenly;
 	width: 100%;
-	padding: 10px 15%;
+	padding: 10% 15%;
 	height: auto;
 	background: #999;
 	/* background: #001233; */
 }
+
+nav #nav-tog img {
+	width: 10%;
+}
+
 nav #nav-tog img.nav-minimized {
 	animation: rotate 0.3s ease-in-out forwards;
 }
+
 nav #nav-tog img.nav-maximized {
 	animation: rev-rotate 0.3s ease-in-out forwards;
 }
@@ -115,14 +124,17 @@ nav #nav-tog img.nav-maximized {
 	0% {
 		transform: rotate(0deg);
 	}
+
 	100% {
 		transform: rotate(-180deg);
 	}
 }
+
 @keyframes rev-rotate {
 	0% {
 		transform: rotate(-180deg);
 	}
+
 	100% {
 		transform: rotate(0deg);
 	}
@@ -152,30 +164,25 @@ nav #nav-sec a {
 
 nav #nav-sec a:hover,
 nav #nav-sec a.selected {
-	/* transform: scale(1.05); */
+	transform: scale(1.05);
 	width: 105%;
 	position: relative;
 	right: 5%;
 	/* top: -0.5%; */
-	box-shadow: -3px 0 5px rgba(0, 0, 0, 0.1);
-	/* -5px 0 5px rgba(0, 0, 0, 0.3); */
+	box-shadow: -3px 0 5px rgba(0, 0, 0, 0.1),
+		-5px 0 5px rgba(0, 0, 0, 0.3);
 }
 
 nav #nav-sec a img,
 nav #nav-sec a svg {
-	width: 25%;
-	fill: white;
+	width: 20%;
+	/* fill: white; */
 }
 
 nav #nav-sec a span {
 	text-align: center;
 	color: #fff;
-	font-size: 1vw;
-}
-
-.big {
-	top: 20px;
-	transform: scale(1.1);
+	font-size: 15px;
 }
 
 main {
@@ -404,7 +411,7 @@ main {
 	padding-bottom: 2vh;
 }
 
-#edu-info > div {
+#edu-info>div {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -447,7 +454,7 @@ main {
 	min-height: auto;
 }
 
-#contact > div {
+#contact>div {
 	display: grid;
 	/* ! there is a reason why I didn't use 1fr 1fr insted of 50% 50% - the text area messes everything when someone tries to expand it & useing grid-template-columns: 50% 50%; is a simple fix here */
 	grid-template-columns: 50% 50%;
@@ -508,11 +515,16 @@ main {
 }
 
 #form-sec {
-	padding: 20px 20px;
+	/* padding: 20px 20px; */
 	background: #232323;
 	/* background: #001233; */
 	color: #fff;
 	border-radius: 5px;
+	overflow: hidden;
+}
+
+form {
+	margin: 20px;
 }
 
 form h3 {
@@ -540,20 +552,24 @@ form textarea {
 	font-weight: 600;
 }
 
-form > div {
+form>div {
 	margin-top: 10px;
 	width: 100%;
 	max-width: 100%;
 	overflow-x: scroll;
 }
+
 .disable-scrollbars::-webkit-scrollbar {
 	width: 0px;
-	background: transparent; /* Chrome/Safari/Webkit */
+	background: transparent;
+	/* Chrome/Safari/Webkit */
 }
 
 .disable-scrollbars {
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* IE 10+ */
+	scrollbar-width: none;
+	/* Firefox */
+	-ms-overflow-style: none;
+	/* IE 10+ */
 }
 
 form textarea {
@@ -573,4 +589,29 @@ form button {
 
 form button:active {
 	transform: scale(0.96);
+}
+
+#form-sending,
+#form-submitted,
+#form-error {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	font-size: 25px;
+	text-align: center;
+	background: #001233;
+}
+
+#form-submitted {
+	background: rgb(37, 206, 74);
+}
+
+#form-error{
+	background: rgb(202, 2, 2);
+}
+
+.disp-n {
+	display: none !important;
 }

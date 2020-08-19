@@ -34,7 +34,7 @@
                 </g>
             </svg>
         </div>
-        <div id="light-theme" class="theme-hidden">
+        <div id="light-theme" class="disp-n">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48px" height="48px">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path
@@ -484,16 +484,25 @@
                     </div>
                 </div>
                 <div id="form-sec">
+                    <div id="form-sending" class="disp-n">
+                        Submitting form. <br>Please wait...
+                    </div>
+                    <div id="form-submitted" class="disp-n">
+                        Form submitted 😄🎉 <br>Thank you for your response😊
+                    </div>
+                    <div id="form-error" class="disp-n">
+                        Something went wrong! 😟 <br> Please refresh the page and try again!
+                    </div>
                     <form name="Visitor Response" method="POST" data-netlify="true" data-netlify-recaptcha="true">
                         <h3>Leave a message:</h3>
                         <p>
-                            <label>Name<input type="text" name="name" /></label>
+                            <label>Name<input type="text" name="name" required /></label>
                         </p>
                         <p>
-                            <label>Email<input type="email" name="email" /></label>
+                            <label>Email<input type="email" name="email" required/></label>
                         </p>
                         <p>
-                            <label>Message<textarea name="message" id="autoresizing"></textarea></label>
+                            <label>Message<textarea name="message" id="autoresizing" required></textarea></label>
                         </p>
                         <div data-netlify-recaptcha="true" class="disable-scrollbars"></div>
                         <p>
