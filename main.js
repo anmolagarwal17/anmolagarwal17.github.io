@@ -95,54 +95,7 @@ function autoResize() {
 	this.style.height = this.scrollHeight + 'px';
 }
 
-const navTog = document.querySelectorAll('#nav-tog img');
-document.addEventListener('click', () => {
-	navTog[0].classList.toggle('nav-minimized');
-	navTog[0].classList.toggle('nav-maximized');
-	setTimeout(() => {
-		navTog[1].classList.toggle('nav-minimized');
-		navTog[1].classList.toggle('nav-maximized');
-	}, 100);
-	setTimeout(() => {
-		navTog[2].classList.toggle('nav-minimized');
-		navTog[2].classList.toggle('nav-maximized');
-	}, 200);
-});
-
-// ! AJAX form submition
-
-// form.addEventListener('submit', (e) => {
-// 	e.preventDefault();
-
-// 	// submit
-// 	let xhr = new XMLHttpRequest();
-// 	xhr.open('POST',form.getAttribute('action'), true);
-// 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
-
-// 	// submiting/loading
-// 	xhr.onprogress = function(){
-// 		form.classList.add('disp-n');
-// 		document.getElementById('form-sending').classList.remove('disp-n');
-// 	}
-
-// 	// successful
-// 	xhr.onload = function(){
-// 		document.getElementById('form-sending').classList.add('disp-n');
-// 		document.getElementById('form-submitted').classList.remove('disp-n');
-// 	}
-
-// 	// error
-// 	xhr.onerror = function () {
-// 		form.classList.add('disp-n');
-// 		document.getElementById('form-error');
-// 	};
-
-// 	xhr.onabort = function () {
-// 		form.classList.add('disp-n');
-// 		document.getElementById('form-error');
-// 	};
-
-// });
+// ! AJAX form submition using fetch
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
