@@ -154,7 +154,7 @@ form.addEventListener('submit', (e) => {
 			'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
 			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
 		},
-		body: new URLSearchParams(form).toString()
+		body: new URLSearchParams(formData).toString()
 	})
 		.then((res) => {
 			// successful
