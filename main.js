@@ -10,7 +10,7 @@ const quickActions = document.getElementById('quick-actions');
 const hoverShowQuickActions = document.getElementById(
 	'hover-show-quick-actions'
 );
-const form = document.getElementsByTagName('form');
+const form = document.getElementByTagName('form');
 
 const secHeights = [
 	home.clientHeight,
@@ -115,6 +115,7 @@ form.addEventListener('submit', (e) => {
 	
 	// submit
 	let xhr = new XMLHttpRequest();
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
 	xhr.open('POST',form.getAttribute('action'), true);
 	
 	// submiting/loading
@@ -134,8 +135,10 @@ form.addEventListener('submit', (e) => {
 		form.classList.add('disp-n');
 		document.getElementById('form-error');
 	};
-
-
-
+	
+	xhr.onabort = function () {
+		form.classList.add('disp-n');
+		document.getElementById('form-error');
+	};
 
 });
