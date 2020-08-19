@@ -116,7 +116,7 @@ form.addEventListener('submit', (e) => {
 	
 	// submit
 	let xhr = new XMLHttpRequest();
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
 	xhr.open('POST',form.getAttribute('action'), true);
 	
 	// submiting/loading
