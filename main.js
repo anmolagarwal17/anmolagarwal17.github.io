@@ -61,6 +61,7 @@ window.addEventListener('scroll', function () {
 	for (let j = 0; j < navSec.length; j++) {
 		navSec[j].classList.remove('selected');
 	}
+	console.log(navSec + " " + i);
 	navSec[i].classList.add('selected');
 	// section title animation
 	for (let j = 0; j < i + 1; j++) {
