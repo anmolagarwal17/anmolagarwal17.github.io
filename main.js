@@ -29,12 +29,23 @@ quickActions.addEventListener('mouseover', () => {
 	quickActions.classList.remove('quick-actions-hidden');
 });
 
+
+var lastScrollTop = 0;
 window.addEventListener('scroll', function () {
 	// when the user is scrolling, hide the quick action toolbar
 	// hide quick sections when out of home section
-	if (window.scrollY > secHeights[0])
+	if (window.scrollY > secHeights[0] && window.innerWidth > 864)
+	quickActions.classList.add('quick-actions-hidden');
+	// hide quick sections when out of home section on smaller screens
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+   var st = window.pageYOffset || document.documentElement.scrollTop;
+   if (st > lastScrollTop){
 		quickActions.classList.add('quick-actions-hidden');
-
+   } else {
+		quickActions.classList.remove('quick-actions-hidden');
+	}
+   lastScrollTop = st <= 0 ? 0 : st;
+	
 	// for nav selection animation
 
 	// ! let sum = (2 * secHeights[0]) / 3;
