@@ -315,10 +315,12 @@ main {
 }
 
 .proj-but a {
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	text-align: center;
-	background: #444;
+	background: #001233;
 	/* background: #001233; */
 	color: #fff;
 	padding: 10px 0;
@@ -327,6 +329,10 @@ main {
 	cursor: pointer;
 	/* transition: all 0.3s ease-in-out; */
 }
+.proj-but a svg{
+	padding-left: 5px;
+	width: 30px;
+}
 
 .proj-but div:hover {
 	/* transform: scale(0.96); */
@@ -334,15 +340,21 @@ main {
 }
 
 #proj-sec-opt div {
-	/* margin: 0 20px; */
 	text-align: center;
-	/* background: #444;
-    color: #fff; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding: 10px 0;
 	border-radius: 1px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
+}
+#proj-sec-opt div svg{
+	/* inverted svg color */
+	fill: black;
+	padding-left: 5px;
+	width: 30px;
 }
 
 #proj-sec-opt div:hover {
@@ -512,12 +524,16 @@ main {
 }
 
 #contact-handles #contact-downoad-CV {
-	display: inline-block;
-	background: #232323;
+	display: inline-flex;
+	align-items: center;
+	background: #001233;
 	color: white;
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
+}
+#contact-handles #contact-downoad-CV svg{
+	padding-right: 5px;
 }
 
 #contact-handles span#contact-downoad-CV:hover {
@@ -526,7 +542,7 @@ main {
 
 #form-sec {
 	/* padding: 20px 20px; */
-	background: #232323;
+	background: #001233;
 	/* background: #001233; */
 	color: #fff;
 	border-radius: 5px;
@@ -805,11 +821,6 @@ form button:active {
 		padding: 80px 0 0 10px;
 	}
 
-	#home .content div p,
-	#home .content div h2 {
-		font-size: 15px;
-	}
-
 	#home .content div h1 {
 		font-size: 40px;
 	}
@@ -836,18 +847,12 @@ form button:active {
 		padding: 30px 0 0px 10px;
 	}
 
-	#home .content div p,
-	#home .content div h2 {
-		font-size: 15px;
-	}
-
 	#home .content div h1 {
 		font-size: 30px;
 	}
 
 	#about .content p {
 		font-size: 17px;
-		line-height: 30px;
 	}
 
 	#proj-display,
@@ -919,9 +924,6 @@ form button:active {
 }
 
 @media only screen and (max-width: 520px) {
-	#home .content div:nth-child(2) {
-		padding: 30px 0 0px 10px;
-	}
 
 	#home .content div p,
 	#home .content div h2 {
