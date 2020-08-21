@@ -356,11 +356,6 @@ main {
 	width: 30px;
 }
 
-.proj-but div:hover {
-	/* transform: scale(0.96); */
-	background: #555;
-}
-
 #proj-sec-opt div {
 	text-align: center;
 	display: flex;
@@ -383,11 +378,6 @@ main {
 	fill: var(--main-txt);
 	padding-left: 5px;
 	width: 30px;
-}
-
-#proj-sec-opt div:hover {
-	/* transform: scale(0.96); */
-	background: #eee;
 }
 
 #skills .content {
