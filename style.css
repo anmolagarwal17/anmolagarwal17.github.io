@@ -99,48 +99,6 @@ nav {
 	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.5), -5px 0 30px rgba(0, 0, 0, 0.2), -5px 0 80px rgba(0, 0, 0, 0.5);
 }
 
-/* nav #nav-tog {
-	display: flex;
-	justify-content: space-evenly;
-	width: 100%;
-	padding: 10% 15%;
-	height: auto;
-	background: #999; */
-/* background: #001233; */
-/* } */
-
-/* nav #nav-tog img {
-	width: 10%;
-}
-
-nav #nav-tog img.nav-minimized {
-	animation: rotate 0.3s ease-in-out forwards;
-}
-
-nav #nav-tog img.nav-maximized {
-	animation: rev-rotate 0.3s ease-in-out forwards;
-} */
-
-/* @keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(-180deg);
-	}
-}
-
-@keyframes rev-rotate {
-	0% {
-		transform: rotate(-180deg);
-	}
-
-	100% {
-		transform: rotate(0deg);
-	}
-} */
-
 nav #nav-sec {
 	height: 100%;
 	display: flex;

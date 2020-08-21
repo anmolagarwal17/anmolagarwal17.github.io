@@ -48,20 +48,6 @@ window.addEventListener('scroll', function () {
 	}
 	// for nav selection animation
 
-	// ! let sum = (2 * secHeights[0]) / 3;
-	// ! let i = 1;
-	// ! while (sum < window.scrollY) {
-	// ! 	sum += secHeights[i - 1] / 3 + (2 * secHeights[i]) / 3;
-	// ! 	i++;
-	// ! }
-	// ! i--;
-	// ! for (let j = 0; j < navSec.length; j++) {
-	// ! 	navSec[j].classList.remove('selected');
-	// ! }
-	// ! navSec[i].classList.add('selected');
-
-	// ! copied
-
 	let sum = secHeights[0] / 3;
 	let i = 1;
 	while (sum < window.scrollY) {
@@ -79,24 +65,6 @@ window.addEventListener('scroll', function () {
 			secs[j].querySelector('svg').classList.add('logo');
 		}
 	}
-
-	// !
-
-	// quick actions animation - if on home section then show quick actions
-	if (i == 0) quickActions.classList.remove('quick-actions-hidden');
-
-	// section title animations
-	// ! old section title animation logic
-	// sum = secHeights[0] / 3;
-	// i = 1;
-	// // when 1/4th of the next section is scrolled into the view then add logo class to it and every section above it also
-	// while (sum < window.scrollY) {
-	// 	sum += (2 * secHeights[i - 1]) / 3 + (1 * secHeights[i]) / 3;
-	// 	i++;
-	// }
-	// for (let j = 0; j < i; j++) {
-	// 	secs[j].querySelector('svg').classList.add('logo');
-	// }
 });
 
 // textarea auto resize height code snippet
