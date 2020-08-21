@@ -11,8 +11,6 @@ const hoverShowQuickActions = document.getElementById(
 	'hover-show-quick-actions'
 );
 const form = document.getElementsByTagName('form')[0];
-console.log(form);
-
 const secHeights = [
 	home.clientHeight,
 	about.clientHeight,
@@ -68,14 +66,15 @@ window.addEventListener('scroll', function () {
 			secs[j].querySelector('svg').classList.add('logo');
 		}
 	} else if (window.innerWidth <= 864) {
-		sum = -3*window.innerHeight/4;
+		sum = (-3 * window.innerHeight) / 4;
 		i = 0;
 		while (sum < window.scrollY) {
 			sum += secHeights[i];
 			i++;
 		}
-		for (let j = 0; j < i; j++) {
+		for (let j = 0; j < i && j < 6; j++) {
 			secs[j].querySelector('svg').classList.add('logo');
+			console.log(secs[j]);
 		}
 	}
 });
@@ -136,3 +135,54 @@ form.addEventListener('submit', (e) => {
 			console.error(error);
 		});
 });
+
+// view certificates/achievements
+
+const closeBtn = document.querySelectorAll('.close');
+const viewCert = document.querySelector('#view-cert');
+const certM = document.querySelector('#viewing-cert');
+
+// Events
+viewCert.addEventListener('click', () => {
+	certM.style.display = 'block';
+});
+
+closeBtn[0].addEventListener('click', () => {
+	certM.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+	if (e.target == certM)
+		document.querySelector('#viewing-cert').style.display = 'none';
+});
+
+// Close If Outside Click
+function outsideClick(e) {
+	if (e.target == modal) {
+		modal.style.display = 'none';
+	}
+}
+
+const viewAchi = document.querySelector('#view-achi');
+const certA = document.querySelector('#viewing-achi');
+
+// Events
+viewAchi.addEventListener('click', () => {
+	certA.style.display = 'block';
+});
+
+closeBtn[1].addEventListener('click', () => {
+	certA.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+	if (e.target == certA)
+		certA.style.display = 'none';
+});
+
+// theme changing logic
+
+
+
+
+// implement project section expansion logic here

@@ -1,3 +1,14 @@
+
+body.light{
+	/* --main-bg: #001233;
+	--sec-bg: #fff;
+	--main-txt: #fff;
+	--sec-txt: #000; */
+	--main-bg: #fff;
+	--sec-bg: #001233;
+	--main-txt: #000;
+	--sec-txt: #fff;
+}
 .main-sec svg.head {
     visibility: hidden;
     margin-bottom: 20px;
@@ -443,54 +454,6 @@
     animation: line-anim 1.5s ease forwards 0.7s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes opa-0-1 {
     from {
         opacity: 0;
@@ -507,12 +470,13 @@
     }
 
     to {
-        fill: black;
+        fill: var(--main-txt);
     }
 }
 
 @keyframes line-anim {
     to {
+        stroke: var(--main-txt);
         stroke-dashoffset: 0;
     }
 }
