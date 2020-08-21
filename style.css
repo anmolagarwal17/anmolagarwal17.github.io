@@ -919,6 +919,7 @@ form button:active {
 		height: 100%;
 		padding: 10px 0;
 		/* background: var(--sec-bg); */
+		background: #001233;
 		border: none;
 		/* transition: all 0.3s ease; */
 	}
@@ -956,7 +957,8 @@ form button:active {
 
 	nav #nav-sec a span {
 		text-align: center;
-		color: var(--sec-txt);
+		/* color: var(--sec-txt); */
+		color: white;
 		font-size: 15px;
 	}
 
