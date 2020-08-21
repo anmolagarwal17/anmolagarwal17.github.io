@@ -33,19 +33,22 @@ var lastScrollTop = 0;
 window.addEventListener('scroll', function () {
 	// when the user is scrolling, hide the quick action toolbar
 	// hide quick sections when out of home section
-	if (window.scrollY > secHeights[0] && window.innerWidth > 864)
+	// if (window.innerWidth > 864) {
+	// 	if (window.scrollY > secHeights[0])
+	// 		quickActions.classList.add('quick-actions-hidden');
+	// 	else quickActions.classList.remove('quick-actions-hidden');
+	// }
+	// // hide quick sections when out of home section on smaller screens
+	// // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+	// else {
+	var st = window.pageYOffset || document.documentElement.scrollTop;
+	if (st > lastScrollTop) {
 		quickActions.classList.add('quick-actions-hidden');
-	// hide quick sections when out of home section on smaller screens
-	// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-	if (window.innerWidth <= 864) {
-		var st = window.pageYOffset || document.documentElement.scrollTop;
-		if (st > lastScrollTop) {
-			quickActions.classList.add('quick-actions-hidden');
-		} else {
-			quickActions.classList.remove('quick-actions-hidden');
-		}
-		lastScrollTop = st <= 0 ? 0 : st;
+	} else {
+		quickActions.classList.remove('quick-actions-hidden');
 	}
+	lastScrollTop = st <= 0 ? 0 : st;
+	// }
 	// for nav selection animation
 
 	let sum = secHeights[0] / 3;
@@ -58,14 +61,30 @@ window.addEventListener('scroll', function () {
 	for (let j = 0; j < navSec.length; j++) {
 		navSec[j].classList.remove('selected');
 	}
-	if (i < 6) {
+	if (i < 6 && window.innerWidth > 864) {
 		navSec[i].classList.add('selected');
 		// section title animation
 		for (let j = 0; j < i + 1; j++) {
 			secs[j].querySelector('svg').classList.add('logo');
 		}
+	} else if (window.innerWidth <= 864) {
+		sum = -3*window.innerHeight/4;
+		i = 0;
+		while (sum < window.scrollY) {
+			sum += secHeights[i];
+			i++;
+		}
+		for (let j = 0; j < i; j++) {
+			secs[j].querySelector('svg').classList.add('logo');
+		}
 	}
 });
+// // if screen width is less than , equal to 864(breakpoint) then skip the reveal animation
+// if (window.innerWidth <= 864) {
+// 	for (let j = 0; j < secs.length; j++) {
+// 		secs[j].querySelector('svg').classList.add('logo');
+// 	}
+// }
 
 // textarea auto resize height code snippet
 textarea = document.querySelector('#autoresizing');

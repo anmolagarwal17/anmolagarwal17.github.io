@@ -164,7 +164,7 @@ main {
 
 #home .content img {
 	width: 100%;
-	filter: drop-shadow(0 0 7px #666);
+	filter: drop-shadow(0 0 7px #000);
 	-webkit-filter: drop-shadow(0px 7px 10px #000);
 }
 
@@ -216,6 +216,10 @@ main {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 25px rgba(0, 0, 0, 0.2);
 	border-radius: 5px;
 	overflow: hidden;
+	bottom: 0;
+}
+.proj-tile:hover{
+	bottom: 3px;
 }
 
 .proj-details {
@@ -334,7 +338,7 @@ main {
 #skills .content div {
 	font-size: 25px;
 	padding: 5px 0;
-	font-weight: 600;
+	font-weight: 500;
 	padding-bottom: 20px;
 }
 
@@ -791,6 +795,15 @@ form button:active {
 	.proj-but {
 		flex-direction: column;
 		gap: 5px;
+	}
+	#view-cert,
+	#view-achi{
+		font-size: 14px;
+	}
+	#edu-info div .title,
+	#edu-cert div p,
+	#edu-other div p{
+		font-weight: 400;
 	}
 }
 
