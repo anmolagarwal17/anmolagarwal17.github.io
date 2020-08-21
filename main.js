@@ -182,7 +182,13 @@ window.addEventListener('click', (e) => {
 
 // theme changing logic
 
+const theme = document.getElementById('theme');
 
+theme.addEventListener('click', () => {
+	document.body.classList.toggle('dark');
+	document.querySelector('svg:nth-child(1)').classList.toggle('disp-n');
+	document.querySelector('svg:nth-child(2)').classList.toggle('disp-n');
+})
 
 
 // implement project section expansion logic here

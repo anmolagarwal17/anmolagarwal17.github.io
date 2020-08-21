@@ -1,14 +1,18 @@
 
 body.light{
-	/* --main-bg: #001233;
-	--sec-bg: #fff;
-	--main-txt: #fff;
-	--sec-txt: #000; */
 	--main-bg: #fff;
 	--sec-bg: #001233;
 	--main-txt: #000;
 	--sec-txt: #fff;
 }
+
+body.dark {
+	--main-bg: #001233;
+	--sec-bg: #fff;
+	--main-txt: #fff;
+	--sec-txt: #000;
+}
+
 .main-sec svg.head {
     visibility: hidden;
     margin-bottom: 20px;
