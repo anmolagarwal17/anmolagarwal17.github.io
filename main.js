@@ -4,7 +4,7 @@ const projects = document.getElementById('projects');
 const skills = document.getElementById('skills');
 const education = document.getElementById('education');
 const contact = document.getElementById('contact');
-const navSec = document.querySelectorAll('#nav-sec a');
+const navSecA = document.querySelectorAll('#nav-sec a');
 const secs = [home, about, projects, skills, education, contact];
 const quickActions = document.getElementById('quick-actions');
 const hoverShowQuickActions = document.getElementById(
@@ -56,11 +56,11 @@ window.addEventListener('scroll', function () {
 		i++;
 	}
 	i--;
-	for (let j = 0; j < navSec.length; j++) {
-		navSec[j].classList.remove('selected');
+	for (let j = 0; j < navSecA.length; j++) {
+		navSecA[j].classList.remove('selected');
 	}
 	if (i < 6 && window.innerWidth > 864) {
-		navSec[i].classList.add('selected');
+		navSecA[i].classList.add('selected');
 		// section title animation
 		for (let j = 0; j < i + 1; j++) {
 			secs[j].querySelector('svg').classList.add('logo');
@@ -176,8 +176,7 @@ closeBtn[1].addEventListener('click', () => {
 });
 
 window.addEventListener('click', (e) => {
-	if (e.target == certA)
-		certA.style.display = 'none';
+	if (e.target == certA) certA.style.display = 'none';
 });
 
 // theme changing logic
@@ -188,7 +187,20 @@ theme.addEventListener('click', () => {
 	document.body.classList.toggle('dark');
 	document.querySelector('svg:nth-child(1)').classList.toggle('disp-n');
 	document.querySelector('svg:nth-child(2)').classList.toggle('disp-n');
-})
-
+});
 
 // implement project section expansion logic here
+
+// responsive hamburger menu
+
+const menu = document.getElementsByClassName('hamb')[0];
+const navSec = document.getElementById('nav-sec');
+
+menu.addEventListener('click', () => {
+	navSec.classList.toggle('disp-nav');
+});
+
+document.body.addEventListener('click', (e) => {
+	if (e.target.parentElement != menu) navSec.classList.remove('disp-nav');
+});
+
