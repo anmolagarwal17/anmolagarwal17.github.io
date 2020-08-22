@@ -67,10 +67,6 @@ body.dark {
 	top: -45px;
 }
 
-/* #quick-actions svg {
-	fill: white;
-} */
-
 #quick-actions div {
 	display: flex;
 	align-items: center;
@@ -79,7 +75,6 @@ body.dark {
 	background: #444;
 	background: var(--sec-bg);
 	color: var(--sec-txt);
-	/* height: 100%; */
 	cursor: pointer;
 }
 
@@ -254,7 +249,8 @@ main {
 }
 
 #proj-display,
-#proj-sec-opt {
+#proj-sec-opt,
+#more-proj {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 40px;
@@ -262,6 +258,14 @@ main {
 
 #proj-display {
 	margin-bottom: 20px;
+	row-gap: 0;
+}
+
+#more-proj {
+	grid-column: 1/4;
+	display: grid;
+	/* height: 0; */
+	overflow: hidden;
 }
 
 .proj-tile {
@@ -290,8 +294,9 @@ main {
 
 .proj-preview img {
 	width: 100%;
-	height: 250px;
-	transition: all 0.3s ease-in-out;
+	height: 180px;
+	/* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2), 0 40px 40px rgba(0, 0, 0, 0.2); */
+	border-bottom: 1px solid var(--main-txt);
 }
 
 /* .proj-preview img:hover{
@@ -715,6 +720,7 @@ form textarea {
 	padding: 10px;
 	font-size: 20px;
 	font-weight: 600;
+	color: var(--main-txt);
 	background: var(--main-bg);
 }
 
@@ -811,8 +817,17 @@ form button:active {
 	}
 
 	#proj-display,
-	#proj-sec-opt {
+	#proj-sec-opt,
+	#more-proj {
 		gap: 20px;
+	}
+	
+	#proj-display{
+		row-gap: 0;
+	}
+	
+	.proj-desc{
+		margin-bottom: 90px;
 	}
 
 	#skills .content div {
@@ -833,6 +848,8 @@ form button:active {
 	#home .content div h1 {
 		font-size: 45px;
 	}
+	
+	
 }
 
 
@@ -887,77 +904,6 @@ form button:active {
 		z-index: -1;
 	}
 
-	/* 
-	nav {
-		position: fixed;
-		top: 0;
-		bottom: auto;
-		left: 0;
-		right: 0;
-		width: 100%;
-		height: 10vh;
-		flex-direction: row;
-		border-bottom: 1px solid var(--sec-txt);
-		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 5px 30px rgba(0, 0, 0, 0.2), 0 5px 60px rgba(0, 0, 0, 0.5);
-	}
-
-	.dark nav {
-		box-shadow: 0 3px 10px rgba(255, 255, 255, 0.5), 0 5px 30px rgba(255, 255, 255, 0.2), 0 5px 60px rgba(255, 255, 255, 0.5);
-	}
-
-	nav #nav-sec {
-		height: 100%;
-		flex-direction: row;
-	}
-
-	nav #nav-sec a {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-evenly;
-		text-decoration: none;
-		height: 100%;
-		padding: 10px 0;
-		background: #001233;
-		border: none;
-	}
-
-	nav #nav-sec a:hover,
-	nav #nav-sec a.selected {
-		transform: scale(1.06);
-		width: auto;
-		position: relative;
-		right: auto;
-		border-bottom: 1px solid var(--sec-txt);
-		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1),
-			0 5px 5px rgba(0, 0, 0, 0.3);
-	}
-
-	.dark nav #nav-sec a:hover,
-	.dark nav #nav-sec a.selected {
-		box-shadow: 0 3px 5px rgba(255, 255, 255, 0.1),
-			0 5px 5px rgba(0, 0, 0, 0.3);
-
-	}
-
-	nav #nav-sec a.selected {
-		transform: none;
-		border: none;
-		box-shadow: none;
-	}
-
-	nav #nav-sec a img,
-	nav #nav-sec a svg {
-		width: 20%;
-	}
-
-	nav #nav-sec a span {
-		text-align: center;
-		color: white;
-		font-size: 15px;
-	}
- */
-
 	nav {
 		height: 40px;
 		width: 100%;
@@ -966,6 +912,7 @@ form button:active {
 		left: 0;
 		border-bottom: 1px solid black;
 	}
+
 	.dark nav {
 		box-shadow: none;
 		border-bottom: 1px solid white;
@@ -985,7 +932,6 @@ form button:active {
 
 	#nav-sec {
 		display: none;
-		/* display: flex; */
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
@@ -994,7 +940,8 @@ form button:active {
 		background: #000;
 		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4), 0 30px 30px rgba(0, 0, 0, 0.4), 0 80px 80px rgba(0, 0, 0, 0.4);
 	}
-	.disp-nav#nav-sec{
+
+	.disp-nav#nav-sec {
 		display: flex;
 	}
 
@@ -1078,11 +1025,6 @@ form button:active {
 
 @media only screen and (max-width: 650px) {
 
-	/* nav #nav-sec a img,
-	nav #nav-sec a svg {
-		width: 40%;
-	} */
-
 	#home .content div:nth-child(2) {
 		padding: 30px 0 0px 10px;
 	}
@@ -1096,8 +1038,13 @@ form button:active {
 	}
 
 	#proj-display,
+	#more-proj,
 	#proj-sec-opt {
 		grid-template-columns: 1fr;
+	}
+
+	#more-proj {
+		grid-column: 1/2;
 	}
 
 	.proj-desc {
@@ -1150,7 +1097,6 @@ form button:active {
 
 	#contact-handles {
 		grid-area: handles;
-		/* padding-bottom: 20px; */
 	}
 
 	#contact-handles div {

@@ -1,24 +1,27 @@
-const home = document.getElementById('home');
-const about = document.getElementById('about');
-const projects = document.getElementById('projects');
-const skills = document.getElementById('skills');
-const education = document.getElementById('education');
-const contact = document.getElementById('contact');
 const navSecA = document.querySelectorAll('#nav-sec a');
-const secs = [home, about, projects, skills, education, contact];
+const secs = [
+	document.getElementById('home'),
+	document.getElementById('about'),
+	document.getElementById('projects'),
+	document.getElementById('skills'),
+	document.getElementById('education'),
+	document.getElementById('contact'),
+];
 const quickActions = document.getElementById('quick-actions');
 const hoverShowQuickActions = document.getElementById(
 	'hover-show-quick-actions'
 );
 const form = document.getElementsByTagName('form')[0];
 const secHeights = [
-	home.clientHeight,
-	about.clientHeight,
-	projects.clientHeight,
-	skills.clientHeight,
-	education.clientHeight,
-	contact.clientHeight,
+	document.getElementById('home').clientHeight,
+	document.getElementById('about').clientHeight,
+	document.getElementById('projects').clientHeight,
+	document.getElementById('skills').clientHeight,
+	document.getElementById('education').clientHeight,
+	document.getElementById('contact').clientHeight,
 ];
+
+// quick action - show/hide
 
 hoverShowQuickActions.addEventListener('mouseover', () => {
 	quickActions.classList.remove('quick-actions-hidden');
@@ -30,15 +33,6 @@ quickActions.addEventListener('mouseover', () => {
 var lastScrollTop = 0;
 window.addEventListener('scroll', function () {
 	// when the user is scrolling, hide the quick action toolbar
-	// hide quick sections when out of home section
-	// if (window.innerWidth > 864) {
-	// 	if (window.scrollY > secHeights[0])
-	// 		quickActions.classList.add('quick-actions-hidden');
-	// 	else quickActions.classList.remove('quick-actions-hidden');
-	// }
-	// // hide quick sections when out of home section on smaller screens
-	// // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
-	// else {
 	var st = window.pageYOffset || document.documentElement.scrollTop;
 	if (st > lastScrollTop) {
 		quickActions.classList.add('quick-actions-hidden');
@@ -46,8 +40,8 @@ window.addEventListener('scroll', function () {
 		quickActions.classList.remove('quick-actions-hidden');
 	}
 	lastScrollTop = st <= 0 ? 0 : st;
-	// }
-	// for nav selection animation
+
+	// for navbar  selection animation
 
 	let sum = secHeights[0] / 3;
 	let i = 1;
@@ -78,12 +72,6 @@ window.addEventListener('scroll', function () {
 		}
 	}
 });
-// // if screen width is less than , equal to 864(breakpoint) then skip the reveal animation
-// if (window.innerWidth <= 864) {
-// 	for (let j = 0; j < secs.length; j++) {
-// 		secs[j].querySelector('svg').classList.add('logo');
-// 	}
-// }
 
 // textarea auto resize height code snippet
 textarea = document.querySelector('#autoresizing');
@@ -189,7 +177,28 @@ theme.addEventListener('click', () => {
 	document.querySelector('svg:nth-child(2)').classList.toggle('disp-n');
 });
 
-// implement project section expansion logic here
+// ! implement project section expansion logic here
+
+const moreProj = document.getElementById('more-proj');
+const moreProjHeight = moreProj.clientHeight;
+moreProj.style.height = 0;
+moreProj.style.overflow = 'hidden';
+const projDisp = document.getElementById('proj-display');
+
+const viewMorePorj = document.getElementById('proj-view-more');
+viewMorePorj.addEventListener('click', () => {
+	if (moreProj.style.overflow == 'hidden') {
+		// moreProj.style.display = 'grid';
+		projDisp.style.rowGap = '40px';
+		moreProj.style.overflow = 'visible';
+		moreProj.style.height = moreProjHeight + 'px';
+	} else {
+		if (window.innerWidth > 650) projDisp.style.rowGap = 0;
+		moreProj.style.overflow = 'hidden';
+		moreProj.style.height = 0;
+		// moreProj.style.display = 'none';
+	}
+});
 
 // responsive hamburger menu
 
@@ -203,4 +212,3 @@ menu.addEventListener('click', () => {
 document.body.addEventListener('click', (e) => {
 	if (e.target.parentElement != menu) navSec.classList.remove('disp-nav');
 });
-
