@@ -68,7 +68,7 @@ window.addEventListener('scroll', function () {
 		}
 		for (let j = 0; j < i && j < 6; j++) {
 			secs[j].querySelector('svg').classList.add('logo');
-			console.log(secs[j]);
+			// console.log(secs[j]);
 		}
 	}
 });
@@ -193,11 +193,15 @@ viewMorePorj.addEventListener('click', () => {
 		moreProj.style.overflow = 'visible';
 		moreProj.style.height = moreProjHeight + 'px';
 	} else {
-		if (window.innerWidth > 650) projDisp.style.rowGap = 0;
+		projDisp.style.rowGap = 0;
 		moreProj.style.overflow = 'hidden';
 		moreProj.style.height = 0;
 		// moreProj.style.display = 'none';
 	}
+	// nav animation reveal fix
+	setTimeout(() => {
+		secHeights[2] = document.getElementById('projects').clientHeight;	
+	}, 300);
 });
 
 // responsive hamburger menu
