@@ -362,7 +362,7 @@ main {
 	width: 30px;
 }
 
-#proj-sec-opt div {
+#proj-sec-opt a {
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -371,16 +371,17 @@ main {
 	margin-bottom: 5px;
 	color: var(--main-txt);
 	border-radius: 1px;
+	text-decoration: none;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 }
 
-.dark #proj-sec-opt div {
+.dark #proj-sec-opt a {
 	box-shadow: 0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-#proj-sec-opt div svg {
+#proj-sec-opt a svg {
 	/* inverted svg color */
 	fill: var(--main-txt);
 	padding-left: 5px;

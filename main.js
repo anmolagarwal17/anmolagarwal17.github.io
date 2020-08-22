@@ -187,16 +187,19 @@ const projDisp = document.getElementById('proj-display');
 
 const viewMorePorj = document.getElementById('proj-view-more');
 viewMorePorj.addEventListener('click', () => {
+	var text_to_change = viewMorePorj.childNodes[0];
 	if (moreProj.style.overflow == 'hidden') {
-		// moreProj.style.display = 'grid';
 		projDisp.style.rowGap = '40px';
 		moreProj.style.overflow = 'visible';
 		moreProj.style.height = moreProjHeight + 'px';
+		viewMorePorj.querySelector('svg').style.transform = 'rotate(-180deg)';
+		text_to_change.nodeValue = 'View Less';
 	} else {
 		projDisp.style.rowGap = 0;
 		moreProj.style.overflow = 'hidden';
 		moreProj.style.height = 0;
-		// moreProj.style.display = 'none';
+		viewMorePorj.querySelector('svg').style.transform = 'rotate(0)';
+		text_to_change.nodeValue = 'View More';
 	}
 	// nav animation reveal fix
 	setTimeout(() => {
