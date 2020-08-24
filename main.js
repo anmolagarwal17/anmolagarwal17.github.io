@@ -214,10 +214,12 @@ const navSec = document.getElementById('nav-sec');
 
 menu.addEventListener('click', () => {
 	navSec.classList.toggle('disp-nav');
+	menu.querySelectorAll('svg').forEach(e => e.classList.toggle('disp-n'));
 });
 
 document.body.addEventListener('click', (e) => {
-	if (e.target.parentElement != menu) navSec.classList.remove('disp-nav');
+	// if ( navSec.classList.contains('disp-n') && e.target.parentElement != menu) navSec.classList.remove('disp-nav');
+	if ( navSec.classList.contains('disp-nav') && e.target.parentElement != menu && e.target.parentElement.parentElement != menu) menu.click();
 });
 
 // if preferred UI mode is dark then switch to dark mode

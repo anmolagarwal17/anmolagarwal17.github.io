@@ -926,8 +926,9 @@ form button:active {
 		height: 40px;
 	}
 
-	.hamb img {
+	.hamb svg {
 		width: 40px;
+		height: 40px;
 		padding-right: 10px;
 	}
 
