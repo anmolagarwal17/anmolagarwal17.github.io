@@ -219,3 +219,17 @@ menu.addEventListener('click', () => {
 document.body.addEventListener('click', (e) => {
 	if (e.target.parentElement != menu) navSec.classList.remove('disp-nav');
 });
+
+// if preferred UI mode is dark then switch to dark mode
+// if darkmode then do nothing
+// because it'll be switched by settimeout after if-else statement after 300ms
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+else{
+	// else click to theme option after 600ms because it was clicked to dark mode after 300ms of page loading
+	setTimeout(() => {
+		theme.click();
+	}, 3000)
+}
+setTimeout(() => {
+	theme.click();
+}, 1500);
