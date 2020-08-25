@@ -185,6 +185,10 @@ moreProj.style.height = 0;
 moreProj.style.overflow = 'hidden';
 const projDisp = document.getElementById('proj-display');
 
+// nav animation & title reveal animation fix
+setTimeout(() => {
+	secHeights[2] = document.getElementById('projects').clientHeight;
+}, 300);
 const viewMorePorj = document.getElementById('proj-view-more');
 viewMorePorj.addEventListener('click', () => {
 	var text_to_change = viewMorePorj.childNodes[0];
@@ -201,9 +205,9 @@ viewMorePorj.addEventListener('click', () => {
 		viewMorePorj.querySelector('svg').style.transform = 'rotate(0)';
 		text_to_change.nodeValue = 'View More';
 	}
-	// nav animation reveal fix
+	// nav animation & title reveal animation fix
 	setTimeout(() => {
-		secHeights[2] = document.getElementById('projects').clientHeight;	
+		secHeights[2] = document.getElementById('projects').clientHeight;
 	}, 300);
 });
 
@@ -214,23 +218,31 @@ const navSec = document.getElementById('nav-sec');
 
 menu.addEventListener('click', () => {
 	navSec.classList.toggle('disp-nav');
-	menu.querySelectorAll('svg').forEach(e => e.classList.toggle('disp-n'));
+	menu.querySelectorAll('svg').forEach((e) => e.classList.toggle('disp-n'));
 });
 
 document.body.addEventListener('click', (e) => {
 	// if ( navSec.classList.contains('disp-n') && e.target.parentElement != menu) navSec.classList.remove('disp-nav');
-	if ( navSec.classList.contains('disp-nav') && e.target.parentElement != menu && e.target.parentElement.parentElement != menu) menu.click();
+	if (
+		navSec.classList.contains('disp-nav') &&
+		e.target.parentElement != menu &&
+		e.target.parentElement.parentElement != menu
+	)
+		menu.click();
 });
 
 // if preferred UI mode is dark then switch to dark mode
 // if darkmode then do nothing
 // because it'll be switched by settimeout after if-else statement after 300ms
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-else{
+if (
+	window.matchMedia &&
+	window.matchMedia('(prefers-color-scheme: dark)').matches
+);
+else {
 	// else click to theme option after 600ms because it was clicked to dark mode after 300ms of page loading
 	setTimeout(() => {
 		theme.click();
-	}, 3000)
+	}, 3000);
 }
 setTimeout(() => {
 	theme.click();
