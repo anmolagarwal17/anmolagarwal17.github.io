@@ -14,6 +14,11 @@ a {
 body {
     min-height: 100vh;
     padding-top: 30px;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 
 body.light {
@@ -30,7 +35,7 @@ body.dark {
     --sec-bg: #000;
 }
 
-svg{
+svg {
     margin-right: 5px;
     fill: black;
     /* * change color */
@@ -63,7 +68,7 @@ main {
     color: #fff;
 }
 
-#score div{
+#score div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,12 +76,16 @@ main {
     height: 100%;
 }
 
-#score div:hover{
+#score div:hover {
     /* background: #222; */
 }
 
-#pause{
+#pause {
     cursor: pointer;
+}
+
+#pause svg {
+    fill: white;
 }
 
 .square {
@@ -105,6 +114,7 @@ main {
 .square .content>div {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     font-size: 30px;
     border: 1.5px solid black;
     border-radius: 5px;
@@ -118,38 +128,86 @@ main {
     border-radius: 0;
 }
 
-.content div.selected {
+.square .content div div {
+    color: #fff;
+}
+
+.square .content div div.generated {
+    color: black;
+}
+
+.content div div.hidden {
+    /* display: none; */
+
+}
+
+.square .content div.selected {
     border-width: 2px;
     border-color: blue;
     box-shadow: 0 0 5px blue;
 }
 
-.content div.error {
-    color: red;
+.square .content div.user-input{
+    color: blue;
 }
 
-.content div.selected.error {
+.square .content div.selected.error {
     background: rgba(255, 0, 0, 0.5);
     border: 2px solid red;
     box-shadow: 0 0 5px red;
 }
 
-.content div.user-input {
+.square .content div.highlighted {
     color: blue;
 }
 
-.content div.in-range,
-.content div>div:hover,
-.content div.selected {
+.square .content div.highlighted,
+.square .content div>div:hover,
+.square .content div.selected {
     background: rgba(0, 0, 255, 0.25);
 }
+
+.square .content div.error {
+    color: red;
+}
+
+
+.blur {
+    -webkit-filter: url(#svg-blur);
+    filter: url(#svg-blur);
+    pointer-events: none;
+}
+
+#lost,
+#won{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    opacity: 0.9;
+}
+
+#lost{
+    background: #f00;
+}
+
+#won{
+    background: #0f0;
+}
+
 
 #options {
     grid-area: options;
     display: grid;
 }
 
-#options div{
+#options div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,11 +219,11 @@ main {
     cursor: pointer;
 }
 
-#options div:hover{
+#options div:hover {
     background: #ddd;
 }
 
-#options select{
+#options select {
     margin: 0 10px;
     border: none;
     outline: none;
@@ -225,6 +283,6 @@ main {
     background: #eee;
 }
 
-.disp-n{
+.disp-n {
     display: none !important;
 }
