@@ -176,8 +176,9 @@ main {
 }
 
 .square .content div.selected {
-    border: 2px solid rgb(0, 60, 255);
+    border: 2px solid rgb(0, 0, 255);
     box-shadow: 0 0 5px blue;
+    color: white;
 }
 
 .square .content div.highlighted {
@@ -192,10 +193,11 @@ main {
     color: rgb(0, 255, 0);
 }
 
-.square .content div.highlighted,
+.square .content div>div.highlighted,
 .square .content div>div:hover,
-.square .content div.selected {
-    background: rgba(2, 2, 131, 0.25);
+.square .content div>div.selected {
+    background: rgba(2, 2, 131, 0.664);
+    color: wheat;
 }
 
 /* .dark .square .content div.highlighted,
