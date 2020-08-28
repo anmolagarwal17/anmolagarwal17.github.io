@@ -376,7 +376,7 @@ footer img {
     main {
         width: 60vw;
         height: 75vw;
-        margin: 0 3vw;
+        margin-left: 4vw;
         grid-template-columns: 30vw 30vw 30vw;
         grid-template-rows: min-content 30vw 30vw;
     }
@@ -390,7 +390,7 @@ footer img {
     main {
         width: 90vw;
         height: 155vw;
-        margin-left: 6vw;
+        margin-left: 8vw;
         grid-template-columns: 42vw 42vw;
         grid-template-rows: min-content min-content 84vw 30vw;
         grid-template-areas: 'options options'
@@ -423,7 +423,7 @@ footer img {
 @media only screen and (max-width: 600px) {
     main {
         height: 160vw;
-        margin-left: 3vw;
+        margin-left: 4.5vw;
         grid-template-columns: 45vw 45vw;
         grid-template-rows: min-content min-content 90vw 30vw;
     }
@@ -437,7 +437,7 @@ footer img {
 
 @media only screen and (max-width: 475px) {
     main {
-        margin-left: 2vw;
+        margin-left: 4vw;
         height: 180vw;
     }
     
@@ -452,7 +452,6 @@ footer img {
 
 @media only screen and (max-width: 420px) {
     main {
-        margin-left: 1vw;
         height: 190vw;
     }
 }
