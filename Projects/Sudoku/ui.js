@@ -3,17 +3,10 @@ const theme = document.getElementById('theme');
 if (
 	window.matchMedia &&
 	window.matchMedia('(prefers-color-scheme: dark)').matches
-);
-else {
-	// else click to theme option after 600ms because it was clicked to dark mode after 300ms of page loading
-	setTimeout(() => {
-		theme.click();
-	}, 3000);
-}
-setTimeout(() => {
-	theme.click();
-}, 1500);
-
+    ) 
+    setTimeout(() => {
+        theme.click();
+}, 0);
 // setting height of divs 1/9th of its parent element
 
 var div = Array.from(document.querySelectorAll('.square .content > div'));
@@ -255,7 +248,7 @@ function keyPress(e) {
 	let i;
 	let j;
 	if (focusedBlock) {
-        e.preventDefault();
+		e.preventDefault();
 		switch (e.code) {
 			case 'Numpad1':
 			case 'Digit1':
@@ -379,8 +372,8 @@ function getHint() {
 	}
 }
 
-function changeTheme(){
-    document.body.classList.toggle('dark');
+function changeTheme() {
+	document.body.classList.toggle('dark');
 }
 
 // event listners
@@ -420,4 +413,3 @@ function resetTime() {
 	startTime = new Date();
 	pausedTime = 0;
 }
-
