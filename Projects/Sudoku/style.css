@@ -59,11 +59,9 @@ nav {
     display: inline-flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 10px;
     padding: 5px 0;
     width: 150px;
     cursor: pointer;
-    font-size: 20px;
     border: 2px solid var(--sec-bg);
     background: var(--prim-bg);
 }
@@ -130,6 +128,7 @@ main {
     grid-area: sudoku;
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
 .content {
@@ -151,6 +150,7 @@ main {
     font-size: 30px;
     border: 1.5px solid var(--sec-bg);
     border-radius: 5px;
+    height: 100%;
 }
 
 .content div div {
@@ -275,12 +275,6 @@ main {
     background: #ddd;
 }
 
-#options a:hover>div {
-    border-top: 1px solid var(--sec-bg);
-    border-bottom: 1px solid var(--sec-bg);
-    border-radius: 0;
-}
-
 .dark #options div:hover,
 .dark #options a:hover {
     background: #333;
@@ -343,7 +337,7 @@ main {
     display: none !important;
 }
 
-footer div{
+footer div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -405,6 +399,12 @@ footer img {
         height: 40px;
     }
 
+    #options a:hover>div {
+        border-top: 1px solid var(--sec-bg);
+        border-bottom: 1px solid var(--sec-bg);
+        border-radius: 0;
+    }
+
     #input {
         margin-top: 7px;
     }
@@ -427,6 +427,18 @@ footer img {
         grid-template-columns: 45vw 45vw;
         grid-template-rows: min-content min-content 90vw 30vw;
     }
+    #theme{
+        transform: scale(0.8);
+        left: calc(100vw - 240px)
+    }
+    /* #theme{
+        width: 120px;
+    }
+    #light,
+    #darkS{
+        width: 60px;
+        padding: 0 15px;
+    } */
 }
 
 @media only screen and (max-width: 550px) {
@@ -436,15 +448,19 @@ footer img {
 }
 
 @media only screen and (max-width: 475px) {
+    
+    #theme{
+        transform: scale(0.7);
+    }
     main {
         margin-left: 4vw;
         height: 180vw;
     }
-    
+
     .square .content>div {
         font-size: 20px;
     }
-    
+
     #score div {
         font-size: 12px;
     }
@@ -453,5 +469,14 @@ footer img {
 @media only screen and (max-width: 420px) {
     main {
         height: 190vw;
+    }
+    footer img{
+        width: 25px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    main {
+        height: 210vw;
     }
 }
