@@ -1045,6 +1045,10 @@ form button:active {
 		grid-template-columns: 1fr;
 	}
 
+	#proj-display{
+		row-gap: 20px;
+	}
+	
 	#more-proj {
 		grid-column: 1/2;
 	}
