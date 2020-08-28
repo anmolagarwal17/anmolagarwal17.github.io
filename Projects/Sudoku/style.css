@@ -360,6 +360,7 @@ footer img {
 @media only screen and (max-width: 1000px) {
     main {
         width: 84vw;
+        height: 100vh;
         margin: 0 8vw;
         grid-template-columns: 28vw 28vw 28vw;
         grid-template-rows: min-content 28vw 28vw;
@@ -431,14 +432,6 @@ footer img {
         transform: scale(0.8);
         left: calc(100vw - 240px)
     }
-    /* #theme{
-        width: 120px;
-    }
-    #light,
-    #darkS{
-        width: 60px;
-        padding: 0 15px;
-    } */
 }
 
 @media only screen and (max-width: 550px) {
