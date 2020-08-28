@@ -3,24 +3,12 @@ const theme = document.getElementById('theme');
 if (
 	window.matchMedia &&
 	window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) 
-    setTimeout(() => {
-        theme.click();
-}, 0);
-// setting height of divs 1/9th of its parent element
-
-var div = Array.from(document.querySelectorAll('.square .content > div'));
-var h = div[0].parentElement.clientHeight / 3;
-
-div.forEach((e) => (e.style.height = h + 'px'));
-
-// set row height to 2*2/3 of column width
-// or row height = column width/2
-
-var height = document.getElementsByClassName('square')[0].clientWidth;
-
-// document.getElementById('delete').style.gridTemplateRows = `auto ${height} ${height} !important`
-
+)
+	setTimeout(() => {
+		theme.click();
+	}, 0);
+// setting height of divs 1/9th of its parent element by calling below function
+updareUI();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // make a init function that initialized everything
@@ -376,6 +364,20 @@ function changeTheme() {
 	document.body.classList.toggle('dark');
 }
 
+function updareUI() {
+	var div = Array.from(document.querySelectorAll('.square .content > div'));
+	var h = div[0].parentElement.clientHeight / 3;
+
+	div.forEach((e) => (e.style.height = h + 'px'));
+
+	// set row height to 2*2/3 of column width
+	// or row height = column width/2
+
+	var height = document.getElementsByClassName('square')[0].clientWidth;
+
+	// document.getElementById('delete').style.gridTemplateRows = `auto ${height} ${height} !important`
+}
+
 // event listners
 
 pauseBtn.addEventListener('click', pause);
@@ -388,6 +390,7 @@ document.addEventListener('keydown', keyPress);
 hintBtn.addEventListener('click', getHint);
 eraseBtn.addEventListener('click', erase);
 theme.addEventListener('click', changeTheme);
+window.addEventListener('resize', updareUI);
 
 // helper functions
 
