@@ -12,47 +12,85 @@ a {
 }
 
 body {
-    min-height: 100vh;
-    padding-top: 30px;
     user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
     -o-user-select: none;
-}
-
-body.light {
     --prim-txt: #000;
     --sec-txt: #fff;
     --prim-bg: #fff;
     --sec-bg: #000;
+    color: var(--prim-txt);
+    background: var(--prim-bg);
 }
 
 body.dark {
-    --prim-txt: #000;
-    --sec-txt: #fff;
-    --prim-bg: #fff;
-    --sec-bg: #000;
+    --prim-txt: #fff;
+    --sec-txt: #000;
+    --prim-bg: #000;
+    --sec-bg: #fff;
 }
 
 svg {
     margin-right: 5px;
+    fill: var(--prim-txt);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 5px 10px;
+    max-width: 100vw;
+    margin-bottom: 10px;
+    color: var(--prim-txt);
+    font-size: 25px;
+    border-radius: 0;
+}
+
+.dark nav {
+    background: #111;
+}
+
+#theme {
+    position: relative;
+    left: calc(100vw - 270px);
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    width: 150px;
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid var(--sec-bg);
+    background: var(--prim-bg);
+}
+
+#light,
+#darkS {
+    width: 60px;
+    padding: 0 15px;
+}
+
+#light {
+    fill: white;
+    background: #000;
+}
+
+#darkS {
     fill: black;
-    /* * change color */
+    background: white;
 }
 
 main {
     width: 50vw;
-    /* height: 100%; */
     height: 90vh;
-    /* * set height later */
-    /* max-height: 100vh; */
-    margin: auto calc(50vw - 60vh);
+    margin: auto calc(50vw - 63vh) 50px;
     display: grid;
-    /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-columns: 40vh 40vh 40vh;
-    /* grid-template-rows: auto repeat(2, 1fr); */
-    grid-template-rows: auto 40vh 40vh;
+    grid-template-rows: min-content 40vh 40vh;
     grid-template-areas: 'score score score'
         'sudoku sudoku options'
         'sudoku sudoku input';
@@ -66,6 +104,11 @@ main {
     align-items: center;
     background: #000;
     color: #fff;
+    height: 50px;
+}
+
+.dark #score {
+    border: 2px solid white;
 }
 
 #score div {
@@ -73,11 +116,6 @@ main {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-}
-
-#score div:hover {
-    /* background: #222; */
 }
 
 #pause {
@@ -92,23 +130,18 @@ main {
     grid-area: sudoku;
     position: relative;
     width: 100%;
-    /* * width will be set afterwards */
 }
 
 .content {
     position: absolute;
     top: 0;
     bottom: 0;
-    /* border: 1px solid black; */
     width: 100%;
     height: 100%;
     padding-bottom: 100%;
-    /* overflow: hidden; */
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    /* grid-template-rows: repeat(3, 1fr); */
 }
 
 .square .content>div {
@@ -116,7 +149,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     font-size: 30px;
-    border: 1.5px solid black;
+    border: 1.5px solid var(--sec-bg);
     border-radius: 5px;
 }
 
@@ -124,7 +157,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    color: var(--prim-txt);
+    border: 1px solid var(--sec-bg);
     border-radius: 0;
 }
 
@@ -133,41 +167,52 @@ main {
 }
 
 .square .content div div.generated {
-    color: black;
-}
-
-.content div div.hidden {
-    /* display: none; */
-
+    color: var(--prim-txt);
 }
 
 .square .content div.selected {
-    border-width: 2px;
-    border-color: blue;
+    border: 2px solid blue;
     box-shadow: 0 0 5px blue;
 }
 
-.square .content div.user-input{
-    color: blue;
-}
-
-.square .content div.selected.error {
-    background: rgba(255, 0, 0, 0.5);
-    border: 2px solid red;
-    box-shadow: 0 0 5px red;
+.square .content div.selected {
+    border: 2px solid rgb(0, 60, 255);
+    box-shadow: 0 0 5px blue;
 }
 
 .square .content div.highlighted {
     color: blue;
 }
 
+.dark .square .content div.highlighted {
+    color: white;
+}
+
+.square .content div.user-input {
+    color: rgb(0, 255, 0);
+}
+
 .square .content div.highlighted,
 .square .content div>div:hover,
 .square .content div.selected {
-    background: rgba(0, 0, 255, 0.25);
+    background: rgba(2, 2, 131, 0.25);
 }
 
-.square .content div.error {
+.dark .square .content div.highlighted,
+.dark .square .content div>div:hover,
+.dark .square .content div.selected {
+    background: rgba(1, 0, 54, 0.418);
+}
+
+.square .content div.selected.error,
+.square .content div.selected.error:hover {
+    background: rgba(255, 0, 0, 0.5);
+    border: 2px solid red;
+    box-shadow: 0 0 5px red;
+}
+
+.square .content div.error,
+.dark .square .content div.error {
     color: red;
 }
 
@@ -179,7 +224,7 @@ main {
 }
 
 #lost,
-#won{
+#won {
     position: absolute;
     top: 0;
     left: 0;
@@ -193,11 +238,11 @@ main {
     opacity: 0.9;
 }
 
-#lost{
+#lost {
     background: #f00;
 }
 
-#won{
+#won {
     background: #0f0;
 }
 
@@ -207,20 +252,36 @@ main {
     display: grid;
 }
 
-#options div {
+#options div,
+#options a {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    /* background: #ddd; */
     border-radius: 5px;
     margin: 2px 0;
-    border: 1px solid black;
+    border: 1px solid var(--sec-bg);
     cursor: pointer;
 }
 
-#options div:hover {
+#options a>div {
+    border: none;
+}
+
+#options div:hover,
+#options a:hover {
     background: #ddd;
+}
+
+#options a:hover>div {
+    border-top: 1px solid var(--sec-bg);
+    border-bottom: 1px solid var(--sec-bg);
+    border-radius: 0;
+}
+
+.dark #options div:hover,
+.dark #options a:hover {
+    background: #333;
 }
 
 #options select {
@@ -233,30 +294,19 @@ main {
 #input {
     grid-area: input;
     position: relative;
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr); */
-
 }
 
-/* #input::before{
-    content: '';
-    padding-top: 100%;
-} */
-
 #input .content {
-    /* padding-bottom: 0; */
-    /* padding-top: 2%; */
     height: 0;
     display: block;
-    /* width: 100%; */
     border: none;
 }
 
 #input .content>div {
     display: flex;
     width: 100%;
-    justify-content: stretch;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -283,6 +333,94 @@ main {
     background: #eee;
 }
 
+.dark #input .content>div div:hover {
+    background: #333;
+}
+
 .disp-n {
     display: none !important;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    height: auto;
+    background: #aaa;
+    border-radius: 0;
+}
+
+footer a {
+    vertical-align: middle;
+    color: #000;
+}
+
+footer img {
+    margin: 5px;
+    width: 40px;
+}
+
+@media only screen and (max-width: 1000px) {
+    main {
+        width: 84vw;
+        margin: 0 8vw;
+        grid-template-columns: 28vw 28vw 28vw;
+        grid-template-rows: min-content 28vw 28vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        width: 60vw;
+        height: 75vw;
+        margin: 0 3vw;
+        grid-template-columns: 30vw 30vw 30vw;
+        grid-template-rows: min-content 30vw 30vw;
+    }
+
+    .content {
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        width: 90vw;
+        height: 140vw;
+        margin-left: 6vw;
+        grid-template-columns: 42vw 42vw;
+        grid-template-rows: min-content min-content 84vw 30vw;
+        grid-template-areas: 'options options'
+            'score score'
+            'sudoku sudoku'
+            'input input';
+        gap: 10px;
+    }
+
+    #options div,
+    #options a {
+        height: 40px;
+    }
+
+    #input {
+        margin-top: 7px;
+    }
+
+    #input .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #input .content>div div:nth-child(1),
+    #input .content>div:nth-child(3) div {
+        margin: 2px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        grid-template-columns: 45vw 45vw;
+        grid-template-rows: min-content min-content 90vw 30vw;
+    }
 }

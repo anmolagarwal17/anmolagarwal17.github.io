@@ -1,4 +1,18 @@
-// init
+// theme according to default user theme
+const theme = document.getElementById('theme');
+if (
+	window.matchMedia &&
+	window.matchMedia('(prefers-color-scheme: dark)').matches
+);
+else {
+	// else click to theme option after 600ms because it was clicked to dark mode after 300ms of page loading
+	setTimeout(() => {
+		theme.click();
+	}, 3000);
+}
+setTimeout(() => {
+	theme.click();
+}, 1500);
 
 // setting height of divs 1/9th of its parent element
 
@@ -218,26 +232,22 @@ function checkError() {
 				}, 1000);
 			lost.classList.remove('disp-n');
 		}
-	} else focusedBlock.classList.remove('error');
-
-	checkWon();
+	} else {
+		focusedBlock.classList.remove('error');
+		checkWon();
+	}
 }
 
 function checkWon() {
-	let temp = true;
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (sudokuVal[i][j] != sudokuDivMatrix(i, j).innerText)
-				temp = false;
-		}
-	}
-	if (temp) {
-		won.classList.remove('disp-n');
-		clearInterval(pauseTimeUpdater);
-		pauseTimeUpdater = setInterval(() => {
-			pausedTime++;
-		}, 1000);
-	}
+	for (let i = 0; i < 9; i++)
+		for (let j = 0; j < 9; j++)
+			if (sudokuVal[i][j] == sudokuDivMatrix(i, j).innerText) continue;
+			else return;
+	won.classList.remove('disp-n');
+	clearInterval(pauseTimeUpdater);
+	pauseTimeUpdater = setInterval(() => {
+		pausedTime++;
+	}, 1000);
 }
 
 function keyPress(e) {
@@ -245,6 +255,7 @@ function keyPress(e) {
 	let i;
 	let j;
 	if (focusedBlock) {
+        e.preventDefault();
 		switch (e.code) {
 			case 'Numpad1':
 			case 'Digit1':
@@ -316,21 +327,31 @@ function keyPress(e) {
 				break;
 		}
 	} else {
-		// switch (key) {
-		// 	case value:
-		// 		break;
-		// 	default:
-		// 		break;
-		// }
+		switch (e.code) {
+			case 'ArrowDown':
+			case 'KeyS':
+			case 'ArrowUp':
+			case 'KeyW':
+			case 'ArrowRight':
+			case 'KeyD':
+			case 'ArrowLeft':
+			case 'KeyA':
+				i = 0;
+				j = 0;
+				sudokuDivMatrix(i, j).click();
+				break;
+			default:
+				break;
+		}
 	}
 }
 
 function erase() {
-	if (!focusedBlock.classList.contains('generated')){
-        focusedBlock.innerText = '';
-        focusedBlock.classList.remove('user-input');
-        focusedBlock.classList.remove('error');
-    }
+	if (!focusedBlock.classList.contains('generated')) {
+		focusedBlock.innerText = '';
+		focusedBlock.classList.remove('user-input');
+		focusedBlock.classList.remove('error');
+	}
 }
 
 function getHint() {
@@ -349,13 +370,17 @@ function getHint() {
 				focusedBlock = sudokuDivMatrix(i, j);
 				focusedBlock.innerText = sudokuVal[i][j];
 				focusedBlock.classList.add('user-input');
-                focusedBlock.click()
+				focusedBlock.click();
 				return;
 			}
 		}
 	} else {
 		hintBtn.style.cursor = 'not-allowed';
 	}
+}
+
+function changeTheme(){
+    document.body.classList.toggle('dark');
 }
 
 // event listners
@@ -369,6 +394,7 @@ numInput.forEach((el) => el.addEventListener('click', numberInput));
 document.addEventListener('keydown', keyPress);
 hintBtn.addEventListener('click', getHint);
 eraseBtn.addEventListener('click', erase);
+theme.addEventListener('click', changeTheme);
 
 // helper functions
 
@@ -395,5 +421,3 @@ function resetTime() {
 	pausedTime = 0;
 }
 
-// add event - click
-// if clicked anywhere outside sudoku then unhighlight everything
