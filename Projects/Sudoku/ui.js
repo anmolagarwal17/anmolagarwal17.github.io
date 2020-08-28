@@ -8,7 +8,9 @@ if (
 		theme.click();
 	}, 0);
 // setting height of divs 1/9th of its parent element by calling below function
-updareUI();
+setTimeout(() => {
+    updareUI();
+}, 0);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // make a init function that initialized everything
