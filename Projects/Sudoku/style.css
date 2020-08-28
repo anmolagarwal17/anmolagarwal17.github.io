@@ -198,11 +198,11 @@ main {
     background: rgba(2, 2, 131, 0.25);
 }
 
-.dark .square .content div.highlighted,
+/* .dark .square .content div.highlighted,
 .dark .square .content div>div:hover,
 .dark .square .content div.selected {
     background: rgba(1, 0, 54, 0.418);
-}
+} */
 
 .square .content div.selected.error,
 .square .content div.selected.error:hover {
