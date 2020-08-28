@@ -387,7 +387,7 @@ footer img {
 @media only screen and (max-width: 700px) {
     main {
         width: 90vw;
-        height: 140vw;
+        height: 155vw;
         margin-left: 6vw;
         grid-template-columns: 42vw 42vw;
         grid-template-rows: min-content min-content 84vw 30vw;
@@ -420,7 +420,37 @@ footer img {
 
 @media only screen and (max-width: 600px) {
     main {
+        height: 160vw;
+        margin-left: 3vw;
         grid-template-columns: 45vw 45vw;
         grid-template-rows: min-content min-content 90vw 30vw;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    main {
+        height: 170vw;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    main {
+        margin-left: 2vw;
+        height: 180vw;
+    }
+    
+    .square .content>div {
+        font-size: 20px;
+    }
+    
+    #score div {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    main {
+        margin-left: 1vw;
+        height: 190vw;
     }
 }
