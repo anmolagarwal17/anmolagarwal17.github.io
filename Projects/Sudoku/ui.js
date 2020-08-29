@@ -11,6 +11,9 @@ if (
 setTimeout(() => {
     updareUI();
 }, 0);
+setTimeout(() => {
+    updareUI();
+}, 2000);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // make a init function that initialized everything
