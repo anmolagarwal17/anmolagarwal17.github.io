@@ -67,7 +67,8 @@ body.dark {
 	top: -45px;
 }
 
-#quick-actions div {
+#quick-actions div,
+#quick-actions a{
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,6 +77,7 @@ body.dark {
 	background: var(--sec-bg);
 	color: var(--sec-txt);
 	cursor: pointer;
+	text-decoration: none;
 }
 
 #download-CV svg {
@@ -241,10 +243,9 @@ main {
 }
 
 #about .content p {
-	/* font-family: ; */
 	color: var(--main-txt);
 	font-size: 27px;
-	padding: 1.5% 0;
+	padding: 5px 0;
 	line-height: 40px;
 }
 
@@ -467,9 +468,9 @@ main {
 	display: block;
 	font-size: 18px;
 	color: rgb(14, 25, 184);
-	/* color: #001233; */
 	padding: 10px 0;
 	cursor: pointer;
+	text-decoration: underline;
 }
 
 .dark #view-cert,
