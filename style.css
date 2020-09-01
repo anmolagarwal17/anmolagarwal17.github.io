@@ -12,6 +12,10 @@ svg {
 	fill: var(--sec-txt);
 }
 
+a{
+	text-decoration: none;
+}
+
 body {
 	--main-bg: #fff;
 	--sec-bg: #001233;
@@ -77,7 +81,6 @@ body.dark {
 	background: var(--sec-bg);
 	color: var(--sec-txt);
 	cursor: pointer;
-	text-decoration: none;
 }
 
 #download-CV svg {
@@ -147,7 +150,6 @@ nav {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	text-decoration: none;
 	height: 100%;
 	padding: 10% 0;
 	background: var(--sec-bg);
@@ -330,6 +332,10 @@ main {
 	color: var(--main-txt);
 }
 
+.proj-desc li{
+	list-style-type: none;
+}
+
 .proj-but {
 	position: absolute;
 	bottom: 20px;
@@ -372,7 +378,6 @@ main {
 	margin-bottom: 5px;
 	color: var(--main-txt);
 	border-radius: 1px;
-	text-decoration: none;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
@@ -548,9 +553,7 @@ main {
 	display: flex;
 	align-items: center;
 	font-size: 20px;
-	/* color: var(--main-txt); */
 	color: black;
-	text-decoration: none;
 	cursor: pointer;
 	padding-top: 10px;
 	padding-bottom: 45px;
@@ -581,7 +584,6 @@ main {
 .close:hover,
 .close:focus {
 	color: #000;
-	text-decoration: none;
 	cursor: pointer;
 }
 
@@ -626,7 +628,6 @@ main {
 #contact-handles a {
 	/* display: block; */
 	margin: 5px 5px 0 0;
-	text-decoration: none;
 	color: rgb(0, 50, 126);
 	font-weight: 600;
 	transition: all 0.3s ease-in-out;
@@ -963,7 +964,6 @@ form button:active {
 		color: white;
 		background: #001233;
 		border-top: 1px solid white;
-		text-decoration: none;
 	}
 
 	#nav-sec a svg {
