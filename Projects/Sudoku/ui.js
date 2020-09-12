@@ -230,7 +230,7 @@ function checkError() {
 				el.style.pointerEvents = 'all';
 				el.style.cursor = 'not-allowed';
 			});
-			removeEventListener('keydown', keyEvent);
+			document.removeEventListener('keydown', keyPress);
 		}
 	} else {
 		focusedBlock.classList.remove('error');
@@ -248,7 +248,7 @@ function checkWon() {
 	pauseTimeUpdater = setInterval(() => {
 		pausedTime++;
 	}, 1000);
-	removeEventListener('keydown', keyEvent);
+	document.removeEventListener('keydown', keyPress);
 	numInput.forEach((el) => {
 		el.style.pointerEvents = 'none';
 		el.style.cursor = 'not-allowed';
