@@ -238,6 +238,8 @@ main {
     text-align: center;
     font-size: 25px;
     opacity: 0.9;
+    z-index: 20;
+    pointer-events: none;
 }
 
 #lost {

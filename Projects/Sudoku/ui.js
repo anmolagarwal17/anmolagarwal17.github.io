@@ -9,10 +9,10 @@ if (
 	}, 0);
 // setting height of divs 1/9th of its parent element by calling below function
 setTimeout(() => {
-    updareUI();
+	updareUI();
 }, 0);
 setTimeout(() => {
-    updareUI();
+	updareUI();
 }, 2000);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -57,6 +57,9 @@ let pauseTimeUpdater;
 // difficulty
 let difficultyLevel = 0;
 
+// input key event
+let keyEvent;
+
 // input keys
 const numInput = Array.from(
 	document.querySelectorAll('#input .content > div > div')
@@ -78,6 +81,7 @@ function newGame() {
 	pauseBtn.querySelector('div:nth-child(1)').classList.remove('disp-n');
 	pauseBtn.querySelector('div:nth-child(2)').classList.add('disp-n');
 	timeDisp.innerText = `Time: 00:00`;
+	hintBtn.style.cursor = 'auto';
 	// if paused then unpause
 	pausedTime = 0;
 	sudokuSq.classList.remove('blur');
@@ -86,6 +90,11 @@ function newGame() {
 	hints = 0;
 	won.classList.add('disp-n');
 	lost.classList.add('disp-n');
+	numInput.forEach((el) => {
+		el.style.pointerEvents = 'all';
+		el.style.cursor = 'auto';
+	});
+	keyEvent = document.addEventListener('keydown', keyPress);
 
 	// removing all classes from sudoku divs
 	for (let i = 0; i < 9; i++)
@@ -217,6 +226,11 @@ function checkError() {
 					pausedTime++;
 				}, 1000);
 			lost.classList.remove('disp-n');
+			numInput.forEach((el) => {
+				el.style.pointerEvents = 'all';
+				el.style.cursor = 'not-allowed';
+			});
+			removeEventListener('keydown', keyEvent);
 		}
 	} else {
 		focusedBlock.classList.remove('error');
@@ -228,12 +242,18 @@ function checkWon() {
 	for (let i = 0; i < 9; i++)
 		for (let j = 0; j < 9; j++)
 			if (sudokuVal[i][j] == sudokuDivMatrix(i, j).innerText) continue;
-			else return;
+			else return false;
 	won.classList.remove('disp-n');
 	clearInterval(pauseTimeUpdater);
 	pauseTimeUpdater = setInterval(() => {
 		pausedTime++;
 	}, 1000);
+	removeEventListener('click', keyEvent);
+	numInput.forEach((el) => {
+		el.style.pointerEvents = 'none';
+		el.style.cursor = 'not-allowed';
+	});
+	return true;
 }
 
 function keyPress(e) {
@@ -342,6 +362,9 @@ function erase() {
 
 function getHint() {
 	if (hints < 3) {
+		// if player has won then return
+		// also it will prevent infinite loop
+		if(checkWon()) return;
 		if (focusedBlock) focusedBlock.classList.remove('selected');
 		hints++;
 		hintsDisp.innerText = `Hints: ${hints}/3`;
@@ -357,6 +380,7 @@ function getHint() {
 				focusedBlock.innerText = sudokuVal[i][j];
 				focusedBlock.classList.add('user-input');
 				focusedBlock.click();
+				checkWon();
 				return;
 			}
 		}
@@ -391,7 +415,6 @@ sudokuDiv.forEach((el) => el.addEventListener('click', sudokuFocusedBlock));
 difficulty.addEventListener('input', setDifficulty);
 retryBtn.addEventListener('click', retry);
 numInput.forEach((el) => el.addEventListener('click', numberInput));
-document.addEventListener('keydown', keyPress);
 hintBtn.addEventListener('click', getHint);
 eraseBtn.addEventListener('click', erase);
 theme.addEventListener('click', changeTheme);

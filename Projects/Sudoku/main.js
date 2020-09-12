@@ -70,7 +70,6 @@ function generateSudoku() {
 		}
 		if (!looping) break;
 		timeN += 0.75;
-		console.log('afds');
 	}
 
 	var hello2 = new Date();
