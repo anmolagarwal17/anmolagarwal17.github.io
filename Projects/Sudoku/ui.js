@@ -248,7 +248,7 @@ function checkWon() {
 	pauseTimeUpdater = setInterval(() => {
 		pausedTime++;
 	}, 1000);
-	removeEventListener('click', keyEvent);
+	removeEventListener('keydown', keyEvent);
 	numInput.forEach((el) => {
 		el.style.pointerEvents = 'none';
 		el.style.cursor = 'not-allowed';
